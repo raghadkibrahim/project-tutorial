@@ -2,7 +2,7 @@
   "hash": "3e1b93b4bb916c331d7d91f356e02df5",
   "result": {
     "engine": "jupyter",
-    "markdown": "---\ntitle: Ingestion & Schema\n---\n\n::: {#15aa25ba .cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\ndf['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\ndf['year'] = df['judgment_date'].dt.year\ncounts = df.groupby('year').size().rename('n').reset_index()\ncounts\n```\n:::\n\n\n",
+    "markdown": "---\ntitle: Ingestion & Schema\n---\n\n::: {#490a61f5 .cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\ndf['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\ndf['year'] = df['judgment_date'].dt.year\ncounts = df.groupby('year').size().rename('n').reset_index()\ncounts\n```\n:::\n\n\n",
     "supporting": [
       "ch1-2_files"
     ],
