@@ -1,8 +1,8 @@
 {
-  "hash": "9c65a0ca4d8fde93f90686a7c0f3f250",
+  "hash": "c89e136252c49995813ffcf70f0dd50c",
   "result": {
     "engine": "jupyter",
-    "markdown": "# Data Preprocessing {.unnumbered}\n\n::: {#079d189e .cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\ndf['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\ndf['year'] = df['judgment_date'].dt.year\ncounts = df.groupby('year').size().rename('n').reset_index()\ncounts\n```\n:::\n\n\n``` python\n\nfrom sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')\n\nembs = model.encode(df['cleaned_recitals'].astype(str).tolist(), batch_size=256, show_progress_bar=True)\n\n# Save to disk for FAISS/ScaNN\n\n```\n\n",
+    "markdown": "# Data Preprocessing {.unnumbered}\n\n::: {#e84b24dc .cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nfrom pathlib import Path\nfrom datasets import load_dataset\n\nverdicts = load_dataset(\n    \"csv\",\n    data_files=\"hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv\",\n    streaming=True,\n    split=\"train\",\n)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n/opt/anaconda3/envs/openai_env/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html\n  from .autonotebook import tqdm as notebook_tqdm\n```\n:::\n:::\n\n\n::: {#da1605d5 .cell execution_count=2}\n``` {.python .cell-code}\nimport pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\n```\n:::\n\n\n``` python\n\nfrom sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')\n\nembs = model.encode(df['cleaned_recitals'].astype(str).tolist(), batch_size=256, show_progress_bar=True)\n\n# Save to disk for FAISS/ScaNN\n\n```\n\n",
     "supporting": [
       "ch1-2_files"
     ],

@@ -3,6 +3,24 @@
 ```{python}
 
 #| echo: true
+#| eval: true
+#| fig-cap: "Basic row counts by year"
+import pandas as pd
+from pathlib import Path
+from datasets import load_dataset
+
+verdicts = load_dataset(
+    "csv",
+    data_files="hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv",
+    streaming=True,
+    split="train",
+)
+
+```
+
+```{python}
+
+#| echo: true
 #| eval: false
 #| fig-cap: "Basic row counts by year"
 import pandas as pd
@@ -10,14 +28,8 @@ from pathlib import Path
 
 p = Path('data/raw/verdicts.csv')
 df = pd.read_csv(p)
-df['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')
-df['year'] = df['judgment_date'].dt.year
-counts = df.groupby('year').size().rename('n').reset_index()
-counts
 
 ```
-
-
 
 ``` python
 
