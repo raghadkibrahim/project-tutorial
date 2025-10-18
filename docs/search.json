@@ -12,11 +12,11 @@
   {
     "objectID": "project-1.html",
     "href": "project-1.html",
-    "title": "Part I — Data & Ingestion",
+    "title": "Project I — Case Similarity Search Engine",
     "section": "",
-    "text": "This part covers locating sources, licensing, schema mapping, and ingestion pipelines.",
+    "text": "This part covers locating sources, licensing, schema mapping, and ingestion pipelines.\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt",
     "crumbs": [
-      "Part I — Data & Ingestion"
+      "Project I — Case Similarity Search Engine"
     ]
   },
   {
@@ -26,7 +26,7 @@
     "section": "",
     "text": "We describe source datasets, provenance, and license constraints.\n\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
     "crumbs": [
-      "Part I — Data & Ingestion",
+      "Project I — Case Similarity Search Engine",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources & Licensing</span>"
     ]
   },
@@ -37,7 +37,7 @@
     "section": "",
     "text": "import pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\ndf['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\ndf['year'] = df['judgment_date'].dt.year\ncounts = df.groupby('year').size().rename('n').reset_index()\ncounts",
     "crumbs": [
-      "Part I — Data & Ingestion",
+      "Project I — Case Similarity Search Engine",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Ingestion & Schema</span>"
     ]
   },
