@@ -1,7 +1,7 @@
 ---
 subtitle: A living tutorial of the Law‑AI project
 ---
-<br>
+
 <hr>
 
 ### Introduction {.unnumbered}

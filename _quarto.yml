@@ -4,8 +4,6 @@ project:
 
 book:
   title: "AI For Lawyers"
-  author: "Raghad Ibrahim"
-  date: "10/10/2025"
   chapters:
     - index.qmd
     - part: project-1.qmd
