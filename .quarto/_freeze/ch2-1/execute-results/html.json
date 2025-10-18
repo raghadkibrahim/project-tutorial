@@ -2,7 +2,7 @@
   "hash": "6675699f96cdccf4680358e559d990dd",
   "result": {
     "engine": "jupyter",
-    "markdown": "# Chapter 2-1\n\n---\ntitle: Text Cleaning & Normalization\n---\n\n::: {#1b8eb0f0 .cell execution_count=1}\n``` {.python .cell-code}\nimport re\nimport pandas as pd\n\n# example cleaner\ndef clean_ar(text):\n    if not isinstance(text, str):\n        return ''\n    text = re.sub(r\"[\\u0617-\\u061A\\u064B-\\u0652]\", \"\", text)  # remove diacritics\n    text = re.sub(r\"\\s+\", \" \", text).strip()\n    return text\n\n# apply\n# df['cleaned_recitals'] = df['recitals'].map(clean_ar)\n```\n:::\n\n\n",
+    "markdown": "# Chapter 2-1\n\n---\ntitle: Text Cleaning & Normalization\n---\n\n::: {#6fad5efe .cell execution_count=1}\n``` {.python .cell-code}\nimport re\nimport pandas as pd\n\n# example cleaner\ndef clean_ar(text):\n    if not isinstance(text, str):\n        return ''\n    text = re.sub(r\"[\\u0617-\\u061A\\u064B-\\u0652]\", \"\", text)  # remove diacritics\n    text = re.sub(r\"\\s+\", \" \", text).strip()\n    return text\n\n# apply\n# df['cleaned_recitals'] = df['recitals'].map(clean_ar)\n```\n:::\n\n\n",
     "supporting": [
       "ch2-1_files"
     ],

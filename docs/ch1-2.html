@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -105,6 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -239,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="e84b24dc" class="cell" data-execution_count="1">
+<div id="2726d4fd" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
@@ -255,21 +258,199 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   from .autonotebook import tqdm as notebook_tqdm</code></pre>
 </div>
 </div>
-<div id="da1605d5" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path(<span class="st">'data/raw/verdicts.csv'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f25a56a7" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> <span class="bu">list</span>(verdicts.take(<span class="dv">5000</span>)) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(sample)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df.head() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">case_subtype_code</th>
+<th data-quarto-table-cell-role="th">case_year</th>
+<th data-quarto-table-cell-role="th">case_serial_number</th>
+<th data-quarto-table-cell-role="th">decision_number</th>
+<th data-quarto-table-cell-role="th">judgment_date</th>
+<th data-quarto-table-cell-role="th">recitals</th>
+<th data-quarto-table-cell-role="th">insertion_date</th>
+<th data-quarto-table-cell-role="th">last_update_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1</td>
+<td>1992</td>
+<td>1306</td>
+<td>14</td>
+<td>01-08-2022</td>
+<td>بعد الاطلاع على الأوراق و سماع المرافعة؛؛؛ &nbsp;&nbsp;&nbsp;...</td>
+<td>01-08-2022</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>11</td>
+<td>2016</td>
+<td>629</td>
+<td>22</td>
+<td>19-09-2022</td>
+<td>بعد سماع المرافعة الشفوية ومطالعة الاوراق:حيث ...</td>
+<td>19-09-2022</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>11</td>
+<td>2016</td>
+<td>1005</td>
+<td>18</td>
+<td>25-04-2024</td>
+<td>بعد مطالعة الملف الإلكتروني سماع المرافعة حيث ...</td>
+<td>25-04-2024</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>11</td>
+<td>2018</td>
+<td>634</td>
+<td>21</td>
+<td>30-05-2022</td>
+<td>بعد سماع المرافعة والاطلاع على الأوراق &nbsp;: حيث ...</td>
+<td>30-05-2022</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>11</td>
+<td>2019</td>
+<td>1959</td>
+<td>16</td>
+<td>28-02-2022</td>
+<td>بعد سماع المرافعة ومطالعة الاوراق . حيث ان وقا...</td>
+<td>28-02-2022</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SentenceTransformer(<span class="st">'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>embs <span class="op">=</span> model.encode(df[<span class="st">'cleaned_recitals'</span>].astype(<span class="bu">str</span>).tolist(), batch_size<span class="op">=</span><span class="dv">256</span>, show_progress_bar<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to disk for FAISS/ScaNN</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="bd6f6085" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_text(text):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="dv">\s</span><span class="op">+</span><span class="vs">'</span>, <span class="st">' '</span>, text)  <span class="co"># remove extra spaces</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="pp">[^</span><span class="dv">\w\s</span><span class="pp">]</span><span class="vs">'</span>, <span class="st">''</span>, text)  <span class="co"># remove punctuation</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> text.strip()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="dc9b37b9" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'cleaned_recitals'</span>] <span class="op">=</span> df[<span class="st">'recitals'</span>].<span class="bu">apply</span>(clean_text)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">case_subtype_code</th>
+<th data-quarto-table-cell-role="th">case_year</th>
+<th data-quarto-table-cell-role="th">case_serial_number</th>
+<th data-quarto-table-cell-role="th">decision_number</th>
+<th data-quarto-table-cell-role="th">judgment_date</th>
+<th data-quarto-table-cell-role="th">recitals</th>
+<th data-quarto-table-cell-role="th">insertion_date</th>
+<th data-quarto-table-cell-role="th">last_update_date</th>
+<th data-quarto-table-cell-role="th">cleaned_recitals</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1</td>
+<td>1992</td>
+<td>1306</td>
+<td>14</td>
+<td>01-08-2022</td>
+<td>بعد الاطلاع على الأوراق و سماع المرافعة؛؛؛ &nbsp;&nbsp;&nbsp;...</td>
+<td>01-08-2022</td>
+<td>None</td>
+<td>بعد الاطلاع على الأوراق و سماع المرافعة وحيث إ...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>11</td>
+<td>2016</td>
+<td>629</td>
+<td>22</td>
+<td>19-09-2022</td>
+<td>بعد سماع المرافعة الشفوية ومطالعة الاوراق:حيث ...</td>
+<td>19-09-2022</td>
+<td>None</td>
+<td>بعد سماع المرافعة الشفوية ومطالعة الاوراقحيث ا...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>11</td>
+<td>2016</td>
+<td>1005</td>
+<td>18</td>
+<td>25-04-2024</td>
+<td>بعد مطالعة الملف الإلكتروني سماع المرافعة حيث ...</td>
+<td>25-04-2024</td>
+<td>None</td>
+<td>بعد مطالعة الملف الإلكتروني سماع المرافعة حيث ...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>11</td>
+<td>2018</td>
+<td>634</td>
+<td>21</td>
+<td>30-05-2022</td>
+<td>بعد سماع المرافعة والاطلاع على الأوراق &nbsp;: حيث ...</td>
+<td>30-05-2022</td>
+<td>None</td>
+<td>بعد سماع المرافعة والاطلاع على الأوراق حيث إن...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>11</td>
+<td>2019</td>
+<td>1959</td>
+<td>16</td>
+<td>28-02-2022</td>
+<td>بعد سماع المرافعة ومطالعة الاوراق . حيث ان وقا...</td>
+<td>28-02-2022</td>
+<td>None</td>
+<td>بعد سماع المرافعة ومطالعة الاوراق حيث ان وقائ...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SentenceTransformer(<span class="st">'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>embs <span class="op">=</span> model.encode(df[<span class="st">'cleaned_recitals'</span>].astype(<span class="bu">str</span>).tolist(), batch_size<span class="op">=</span><span class="dv">256</span>, show_progress_bar<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to disk for FAISS/ScaNN</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 

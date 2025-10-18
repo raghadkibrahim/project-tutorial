@@ -21,13 +21,35 @@ verdicts = load_dataset(
 ```{python}
 
 #| echo: true
-#| eval: false
-#| fig-cap: "Basic row counts by year"
-import pandas as pd
-from pathlib import Path
+#| eval: true
 
-p = Path('data/raw/verdicts.csv')
-df = pd.read_csv(p)
+import itertools
+
+sample = list(verdicts.take(5000)) 
+df = pd.DataFrame(sample)
+
+df.head() 
+
+```
+
+``` {python}
+#| echo: true
+#| eval: true
+
+def clean_text(text):
+    text = re.sub(r'\s+', ' ', text)  # remove extra spaces
+    text = re.sub(r'[^\w\s]', '', text)  # remove punctuation
+    return text.strip()
+```
+
+``` {python}
+#| echo: true
+#| eval: true
+import re
+
+df['cleaned_recitals'] = df['recitals'].apply(clean_text)
+
+df.head()
 
 ```
 
