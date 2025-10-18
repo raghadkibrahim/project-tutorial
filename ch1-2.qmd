@@ -1,5 +1,6 @@
 # Data Preprocessing {.unnumbered}
 
+## Import Libraries
 ```{python}
 
 #| echo: true
@@ -8,7 +9,12 @@
 import pandas as pd
 from pathlib import Path
 from datasets import load_dataset
+import numpy as np
 
+```
+
+## Load Dataset
+```{python}
 verdicts = load_dataset(
     "csv",
     data_files="hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv",
@@ -18,6 +24,8 @@ verdicts = load_dataset(
 
 ```
 
+
+## Show a sample
 ```{python}
 
 #| echo: true
@@ -32,6 +40,11 @@ df.head()
 
 ```
 
+
+## Clean `recitals` Column
+
+We will start by ceating a function to clean the text in the `recitals` column.
+
 ``` {python}
 #| echo: true
 #| eval: true
@@ -40,7 +53,11 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text)  # remove extra spaces
     text = re.sub(r'[^\w\s]', '', text)  # remove punctuation
     return text.strip()
+
 ```
+
+
+Applying the function:
 
 ``` {python}
 #| echo: true
@@ -53,15 +70,38 @@ df.head()
 
 ```
 
-``` python
+## Create Semantic Embeddings
 
+Embeddings turn text into numeric vectors that capture meaning. There are a few options we could choose from, but in this case we shall use `sentence_transformer` for its excellent multingual abilities.
+
+``` {python}
+import torch
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+device = "mps" if torch.backends.mps.is_available() else "cpu"
 
-embs = model.encode(df['cleaned_recitals'].astype(str).tolist(), batch_size=256, show_progress_bar=True)
-
-# Save to disk for FAISS/ScaNN
+model = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+model = model.to(device)
 
 ```
 
+``` {python}
+
+# Prepare texts 
+texts = df["cleaned_recitals"].astype(str).tolist()
+
+# Encode in chunks to control memory; keep batch_size modest on MPS
+emb_chunks = []
+for i in range(0, len(texts), 2000):  
+    batch = texts[i:i+2000]
+    embs = model.encode(
+        batch,
+        batch_size=64,                          # 32–128 is usually fine; tweak if you see OOM
+        show_progress_bar=True,
+        convert_to_numpy=True,
+        normalize_embeddings=True         
+    )
+    emb_chunks.append(embs.astype("float32"))   # FAISS prefers float32
+embeddings = np.vstack(emb_chunks)
+
+```
