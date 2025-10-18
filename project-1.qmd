@@ -1,5 +1,5 @@
 ---
-title: Project I — Case Similarity Search Engine 
+title: Project I - Case Similarity Search Engine 
 ---
 
 This part covers locating sources, licensing, schema mapping, and ingestion pipelines.

@@ -1,6 +1,4 @@
----
-title: Data Sources & Licensing
----
+# Data Preprocessing {.unnumbered}
 
 We describe source datasets, provenance, and license constraints.
 
@@ -8,3 +6,4 @@ We describe source datasets, provenance, and license constraints.
 - **Linked lookup:** `case_subtype_code` → subtype labels (external dataset).
 
 > We track download URIs and hashes so we can prove provenance.
+
