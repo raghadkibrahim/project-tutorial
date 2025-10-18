@@ -22,33 +22,33 @@
   {
     "objectID": "ch1-1.html",
     "href": "ch1-1.html",
-    "title": "Data Preprocessing",
+    "title": "1  Explanation",
     "section": "",
     "text": "We describe source datasets, provenance, and license constraints.\n\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
+    "crumbs": [
+      "Project I - Case Similarity Search Engine",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Explanation</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-2.html",
+    "href": "ch1-2.html",
+    "title": "Data Preprocessing",
+    "section": "",
+    "text": "import pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\ndf['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\ndf['year'] = df['judgment_date'].dt.year\ncounts = df.groupby('year').size().rename('n').reset_index()\ncounts\n\n\nfrom sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')\n\nembs = model.encode(df['cleaned_recitals'].astype(str).tolist(), batch_size=256, show_progress_bar=True)\n\n# Save to disk for FAISS/ScaNN",
     "crumbs": [
       "Project I - Case Similarity Search Engine",
       "Data Preprocessing"
     ]
   },
   {
-    "objectID": "ch1-2.html",
-    "href": "ch1-2.html",
-    "title": "AI For Lawyers",
-    "section": "",
-    "text": "import pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\ndf['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\ndf['year'] = df['judgment_date'].dt.year\ncounts = df.groupby('year').size().rename('n').reset_index()\ncounts",
-    "crumbs": [
-      "Project I - Case Similarity Search Engine",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ch1-2.html</span>"
-    ]
-  },
-  {
     "objectID": "project-2.html",
     "href": "project-2.html",
-    "title": "PROJECT 2",
+    "title": "Project II",
     "section": "",
     "text": "We move from clean data → embeddings → retrieval → evaluation.",
     "crumbs": [
-      "Part II — Retrieval & Modeling"
+      "Project II"
     ]
   },
   {
@@ -58,19 +58,8 @@
     "section": "",
     "text": "import re\nimport pandas as pd\n\n# example cleaner\ndef clean_ar(text):\n    if not isinstance(text, str):\n        return ''\n    text = re.sub(r\"[\\u0617-\\u061A\\u064B-\\u0652]\", \"\", text)  # remove diacritics\n    text = re.sub(r\"\\s+\", \" \", text).strip()\n    return text\n\n# apply\n# df['cleaned_recitals'] = df['recitals'].map(clean_ar)",
     "crumbs": [
-      "Part II — Retrieval & Modeling",
+      "Project II",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Text Cleaning & Normalization</span>"
-    ]
-  },
-  {
-    "objectID": "ch2-3.html",
-    "href": "ch2-3.html",
-    "title": "4  Chapter 2 3",
-    "section": "",
-    "text": "from sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')\n\nembs = model.encode(df['cleaned_recitals'].astype(str).tolist(), batch_size=256, show_progress_bar=True)\n\n# Save to disk for FAISS/ScaNN",
-    "crumbs": [
-      "Part II — Retrieval & Modeling",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Embeddings & Indexing</span>"
     ]
   },
   {
@@ -80,7 +69,7 @@
     "section": "",
     "text": "We show prompt templates, red‑teaming, and guardrails for legal use.",
     "crumbs": [
-      "Part II — Retrieval & Modeling",
+      "Project II",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Drafting Assist & Risk Controls</span>"
     ]
   }
