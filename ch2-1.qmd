@@ -1,0 +1,23 @@
+# Chapter 2-1
+
+---
+title: Text Cleaning & Normalization
+---
+
+```{python}
+#| echo: true
+#| eval: false
+import re
+import pandas as pd
+
+# example cleaner
+def clean_ar(text):
+    if not isinstance(text, str):
+        return ''
+    text = re.sub(r"[\u0617-\u061A\u064B-\u0652]", "", text)  # remove diacritics
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+# apply
+# df['cleaned_recitals'] = df['recitals'].map(clean_ar)
+```

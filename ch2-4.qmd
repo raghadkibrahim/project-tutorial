@@ -1,0 +1,7 @@
+# Chapter 2.4
+
+---
+title: Drafting Assist & Risk Controls
+---
+
+We show prompt templates, red‑teaming, and guardrails for legal use.

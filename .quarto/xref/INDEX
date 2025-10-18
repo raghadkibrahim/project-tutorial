@@ -1,0 +1,38 @@
+{
+  "index.qmd": {
+    "index.html": "36ffe751"
+  },
+  "intro.qmd": {
+    "intro.html": "c833c363"
+  },
+  "summary.qmd": {
+    "summary.html": "0b03c41e"
+  },
+  "references.qmd": {
+    "references.html": "993bd52c"
+  },
+  "project-1.qmd": {
+    "project-1.html": "e5b42cff"
+  },
+  "project-2.qmd": {
+    "project-2.html": "29c9c538"
+  },
+  "ch2-1.qmd": {
+    "ch2-1.html": "d818eaab"
+  },
+  "ch1-1.qmd": {
+    "ch1-1.html": "120e99ec"
+  },
+  "ch1-2.qmd": {
+    "ch1-2.html": "e849be51"
+  },
+  "ch2-2.qmd": {
+    "ch2-2.html": "3fcd59da"
+  },
+  "ch2-3.qmd": {
+    "ch2-3.html": "e392526d"
+  },
+  "ch2-4.qmd": {
+    "ch2-4.html": "7fd3b13b"
+  }
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI For Lawyers",
+    "section": "",
+    "text": "Introduction\n\nThis book documents every step of the project so my dad can follow along — from data ingestion to evaluation.\n\n\n\n\n\n\n\nTip\n\n\n\nHow to read this book — The left sidebar lists parts and chapters chronologically. Each chapter shows the latest results; older runs are archived in the Progress appendix.\n\n\n\nProject repo: ?var:book.repo-url\nLatest build: Rendered on each push to main.\n\nThis project builds a legal‑AI stack around Arabic court verdicts. Objectives:\n\nClean and structure raw verdicts (facts, reasoning, verdict, statutes).\nBuild retrieval and analytics pipelines.\nEvaluate embeddings and LLMs for precedent search and drafting.\nShip a transparent, reproducible pipeline.\n\nWe use Python in most chapters; code is baked into the pages, with caches for reproducibility.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "project-1.html",
+    "href": "project-1.html",
+    "title": "Part I — Data & Ingestion",
+    "section": "",
+    "text": "This part covers locating sources, licensing, schema mapping, and ingestion pipelines.",
+    "crumbs": [
+      "Part I — Data & Ingestion"
+    ]
+  },
+  {
+    "objectID": "ch1-1.html",
+    "href": "ch1-1.html",
+    "title": "1  Data Sources & Licensing",
+    "section": "",
+    "text": "We describe source datasets, provenance, and license constraints.\n\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
+    "crumbs": [
+      "Part I — Data & Ingestion",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources & Licensing</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-2.html",
+    "href": "ch1-2.html",
+    "title": "2  Ingestion & Schema",
+    "section": "",
+    "text": "import pandas as pd\nfrom pathlib import Path\n\np = Path('data/raw/verdicts.csv')\ndf = pd.read_csv(p)\ndf['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\ndf['year'] = df['judgment_date'].dt.year\ncounts = df.groupby('year').size().rename('n').reset_index()\ncounts",
+    "crumbs": [
+      "Part I — Data & Ingestion",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Ingestion & Schema</span>"
+    ]
+  },
+  {
+    "objectID": "project-2.html",
+    "href": "project-2.html",
+    "title": "PROJECT 2",
+    "section": "",
+    "text": "We move from clean data → embeddings → retrieval → evaluation.",
+    "crumbs": [
+      "Part II — Retrieval & Modeling"
+    ]
+  },
+  {
+    "objectID": "ch2-1.html",
+    "href": "ch2-1.html",
+    "title": "3  Chapter 2-1",
+    "section": "",
+    "text": "import re\nimport pandas as pd\n\n# example cleaner\ndef clean_ar(text):\n    if not isinstance(text, str):\n        return ''\n    text = re.sub(r\"[\\u0617-\\u061A\\u064B-\\u0652]\", \"\", text)  # remove diacritics\n    text = re.sub(r\"\\s+\", \" \", text).strip()\n    return text\n\n# apply\n# df['cleaned_recitals'] = df['recitals'].map(clean_ar)",
+    "crumbs": [
+      "Part II — Retrieval & Modeling",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Text Cleaning & Normalization</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-3.html",
+    "href": "ch2-3.html",
+    "title": "5  Chapter 2 3",
+    "section": "",
+    "text": "from sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')\n\nembs = model.encode(df['cleaned_recitals'].astype(str).tolist(), batch_size=256, show_progress_bar=True)\n\n# Save to disk for FAISS/ScaNN",
+    "crumbs": [
+      "Part II — Retrieval & Modeling",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Embeddings & Indexing</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-4.html",
+    "href": "ch2-4.html",
+    "title": "6  Chapter 2.4",
+    "section": "",
+    "text": "We show prompt templates, red‑teaming, and guardrails for legal use.",
+    "crumbs": [
+      "Part II — Retrieval & Modeling",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Drafting Assist & Risk Controls</span>"
+    ]
+  }
+]

@@ -1,0 +1,5 @@
+---
+title: Part I — Data & Ingestion
+---
+
+This part covers locating sources, licensing, schema mapping, and ingestion pipelines.

@@ -1,0 +1,7 @@
+# PROJECT 2
+
+---
+title: Part II — Retrieval & Modeling
+---
+
+We move from clean data → embeddings → retrieval → evaluation.

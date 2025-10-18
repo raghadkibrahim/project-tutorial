@@ -1,0 +1,16 @@
+# Chapter 2 3
+
+---
+title: Embeddings & Indexing
+---
+
+```python
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+
+embs = model.encode(df['cleaned_recitals'].astype(str).tolist(), batch_size=256, show_progress_bar=True)
+
+# Save to disk for FAISS/ScaNN
+```

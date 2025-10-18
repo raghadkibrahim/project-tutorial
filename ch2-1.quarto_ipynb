@@ -1,0 +1,56 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Chapter 2-1"
+      ],
+      "id": "828fa47a"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Text Cleaning & Normalization\n",
+        "---"
+      ],
+      "id": "86c8858f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| eval: false\n",
+        "import re\n",
+        "import pandas as pd\n",
+        "\n",
+        "# example cleaner\n",
+        "def clean_ar(text):\n",
+        "    if not isinstance(text, str):\n",
+        "        return ''\n",
+        "    text = re.sub(r\"[\\u0617-\\u061A\\u064B-\\u0652]\", \"\", text)  # remove diacritics\n",
+        "    text = re.sub(r\"\\s+\", \" \", text).strip()\n",
+        "    return text\n",
+        "\n",
+        "# apply\n",
+        "# df['cleaned_recitals'] = df['recitals'].map(clean_ar)"
+      ],
+      "id": "cb6f6d9f",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "openai_env",
+      "language": "python",
+      "display_name": "Python (openai_env)",
+      "path": "/Users/raghadibrahim/Library/Jupyter/kernels/openai_env"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

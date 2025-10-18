@@ -1,0 +1,10 @@
+---
+title: Data Sources & Licensing
+---
+
+We describe source datasets, provenance, and license constraints.
+
+- **Primary dataset:** Dubai Court verdicts CSV (≈217k rows).
+- **Linked lookup:** `case_subtype_code` → subtype labels (external dataset).
+
+> We track download URIs and hashes so we can prove provenance.

@@ -1,0 +1,25 @@
+---
+subtitle: A living tutorial of the Law‑AI project
+---
+<br>
+<hr>
+
+### Introduction {.unnumbered}
+
+> This book documents every step of the project so my dad can follow along — from data ingestion to evaluation.
+
+::: callout-tip
+**How to read this book** — The left sidebar lists parts and chapters chronologically. Each chapter shows the latest results; older runs are archived in the Progress appendix.
+:::
+
+- **Project repo:** {{< var book.repo-url >}}
+- **Latest build:** Rendered on each push to `main`.
+
+This project builds a legal‑AI stack around Arabic court verdicts. Objectives:
+
+1. Clean and structure raw verdicts (facts, reasoning, verdict, statutes).
+2. Build retrieval and analytics pipelines.
+3. Evaluate embeddings and LLMs for precedent search and drafting.
+4. Ship a transparent, reproducible pipeline.
+
+We use Python in most chapters; code is baked into the pages, with caches for reproducibility.

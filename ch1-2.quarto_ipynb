@@ -1,0 +1,45 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Ingestion & Schema\n",
+        "---"
+      ],
+      "id": "e113d7b3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| eval: false\n",
+        "#| fig-cap: \"Basic row counts by year\"\n",
+        "import pandas as pd\n",
+        "from pathlib import Path\n",
+        "\n",
+        "p = Path('data/raw/verdicts.csv')\n",
+        "df = pd.read_csv(p)\n",
+        "df['judgment_date'] = pd.to_datetime(df['judgment_date'], errors='coerce')\n",
+        "df['year'] = df['judgment_date'].dt.year\n",
+        "counts = df.groupby('year').size().rename('n').reset_index()\n",
+        "counts"
+      ],
+      "id": "79d56889",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "openai_env",
+      "language": "python",
+      "display_name": "Python (openai_env)",
+      "path": "/Users/raghadibrahim/Library/Jupyter/kernels/openai_env"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
