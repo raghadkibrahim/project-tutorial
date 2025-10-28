@@ -3,21 +3,25 @@ project:
   output-dir: docs
 
 book:
+  page-footer:
+    border: true
+    background: light
   title: "AI Case Viability Advisor"
   chapters:
     - index.qmd
-    - part: project-1.qmd
+    - _0_1_intro.qmd
+    - part: _1_0_product_scope.qmd
       chapters: 
-        - ch1-1.qmd
-        - ch1-2.qmd
-        - ch1-3.qmd
+        - _1_1.qmd
+        - _1_2.qmd
+        - _1_3.qmd
     - part: project-2.qmd
       chapters:
         - ch2-1.qmd
         - ch2-2.qmd
         - ch2-3.qmd
         - ch2-4.qmd
-      
+
 
 bibliography: references.bib
 
