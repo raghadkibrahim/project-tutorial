@@ -15,12 +15,6 @@ book:
         - chapters/_1_1.qmd
         - chapters/_1_2.qmd
         - chapters/_1_3.qmd
-    - part: project-2.qmd
-      chapters:
-        - ch2-1.qmd
-        - ch2-2.qmd
-        - ch2-3.qmd
-        - ch2-4.qmd
 
 
 bibliography: references.bib

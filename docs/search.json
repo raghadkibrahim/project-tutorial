@@ -109,12 +109,12 @@
   {
     "objectID": "ch2-4.html",
     "href": "ch2-4.html",
-    "title": "5  Chapter 2.4",
+    "title": "8  Chapter 2.4",
     "section": "",
     "text": "We show prompt templates, red‑teaming, and guardrails for legal use.",
     "crumbs": [
       "Project II",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Drafting Assist & Risk Controls</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Drafting Assist & Risk Controls</span>"
     ]
   },
   {
@@ -363,11 +363,11 @@
   {
     "objectID": "chapters/_0_intro.html",
     "href": "chapters/_0_intro.html",
-    "title": "1  Overview",
+    "title": "Overview",
     "section": "",
-    "text": "2 Overview\nThe AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\n\n3 Product Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
+    "text": "The AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\nProduct Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+      "**Overview**"
     ]
   },
   {

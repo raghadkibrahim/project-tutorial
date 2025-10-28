@@ -1,3 +1,0 @@
-# Project II {.unnumbered}
-
-We move from clean data → embeddings → retrieval → evaluation.

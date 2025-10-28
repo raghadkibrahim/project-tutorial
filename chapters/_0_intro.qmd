@@ -1,15 +1,10 @@
 ---
 title-block-banner: true
-title: Overview
-description: Transforming legal case evaluation with AI — from intake packet analysis to outcome prediction and strategic recommendations.
-date: 10/27/2025
-author: Raghad Ibrahim
 ---
 
 <hr>
 
-# **Overview**
-
+# **Overview** {.unnumbered}
 The AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.
 
 The system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.
