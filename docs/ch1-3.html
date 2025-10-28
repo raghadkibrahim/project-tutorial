@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Product Scope – AI Case Viability Advisor</title>
+<title>4&nbsp; Data Preprocessing – AI Case Viability Advisor</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ch1-1.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./project-2.html" rel="next">
+<link href="./ch1-2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -83,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-1.html">Product Scope</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-1.html">Product Scope</a></li><li class="breadcrumb-item"><a href="./ch1-3.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Output: AI Viability Report</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -118,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./project-1.html" class="sidebar-item-text sidebar-link active">
+            <a href="./project-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Product Scope</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -139,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-3.html" class="sidebar-item-text sidebar-link">
+  <a href="./ch1-3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Output: AI Viability Report</span></span></a>
   </div>
 </li>
@@ -190,23 +225,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#input-client-intake-packet" id="toc-input-client-intake-packet" class="nav-link active" data-scroll-target="#input-client-intake-packet">Input: Client Intake Packet</a></li>
-  <li><a href="#processing-pipeline" id="toc-processing-pipeline" class="nav-link" data-scroll-target="#processing-pipeline">Processing Pipeline</a></li>
-  <li><a href="#output-ai-viability-report" id="toc-output-ai-viability-report" class="nav-link" data-scroll-target="#output-ai-viability-report">Output: AI Viability Report</a>
-  <ul class="collapse">
-  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
-  <li><a href="#detailed-analysis" id="toc-detailed-analysis" class="nav-link" data-scroll-target="#detailed-analysis">Detailed Analysis</a></li>
-  <li><a href="#strength-assessment" id="toc-strength-assessment" class="nav-link" data-scroll-target="#strength-assessment">Strength Assessment</a></li>
-  </ul></li>
+  <li><a href="#import-libraries" id="toc-import-libraries" class="nav-link active" data-scroll-target="#import-libraries"><span class="header-section-number">4.1</span> Import Libraries</a></li>
+  <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset"><span class="header-section-number">4.2</span> Load Dataset</a></li>
+  <li><a href="#show-a-sample" id="toc-show-a-sample" class="nav-link" data-scroll-target="#show-a-sample"><span class="header-section-number">4.3</span> Show a sample</a></li>
+  <li><a href="#clean-recitals-column" id="toc-clean-recitals-column" class="nav-link" data-scroll-target="#clean-recitals-column"><span class="header-section-number">4.4</span> Clean <code>recitals</code> Column</a></li>
+  <li><a href="#create-semantic-embeddings" id="toc-create-semantic-embeddings" class="nav-link" data-scroll-target="#create-semantic-embeddings"><span class="header-section-number">4.5</span> Create Semantic Embeddings</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-1.html">Product Scope</a></li><li class="breadcrumb-item"><a href="./ch1-3.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Output: AI Viability Report</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Product Scope</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Preprocessing</span></h1>
 </div>
 
 
@@ -223,45 +255,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="input-client-intake-packet" class="level2">
-<h2 class="anchored" data-anchor-id="input-client-intake-packet">Input: Client Intake Packet</h2>
-<p>The system ingests the same materials a lawyer would review in an initial consultation:</p>
-<ul>
-<li><p>Client’s written summary of the issue (facts, timeline claims, opposing parties).</p></li>
-<li><p>Uploaded documents: Contracts, emails, letters, invoices, employment records, etc.</p></li>
-<li><p>Metadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.</p></li>
-<li><p>Optional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.</p></li>
-</ul>
+<section id="import-libraries" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="import-libraries"><span class="header-section-number">4.1</span> Import Libraries</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="processing-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="processing-pipeline">Processing Pipeline</h2>
+<section id="load-dataset" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="load-dataset"><span class="header-section-number">4.2</span> Load Dataset</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>verdicts <span class="op">=</span> load_dataset(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    data_files<span class="op">=</span><span class="st">"hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    streaming<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    split<span class="op">=</span><span class="st">"train"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="output-ai-viability-report" class="level2">
-<h2 class="anchored" data-anchor-id="output-ai-viability-report">Output: AI Viability Report</h2>
-<p>A structured, human-readable report containing:</p>
-<section id="executive-summary" class="level3">
-<h3 class="anchored" data-anchor-id="executive-summary">Executive Summary</h3>
-<ul>
-<li><p>Case type and category</p></li>
-<li><p>Predicted likelihood of success (expressed as a percentage and confidence interval)</p></li>
-<li><p>Go / No-Go recommendation</p></li>
-<li><p>Brief justification summary</p></li>
-</ul>
+<section id="show-a-sample" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="show-a-sample"><span class="header-section-number">4.3</span> Show a sample</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> <span class="bu">list</span>(verdicts.take(<span class="dv">5000</span>)) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(sample)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df.head() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="detailed-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="detailed-analysis">Detailed Analysis</h3>
-<ul>
-<li><p>Key legal issues detected</p></li>
-<li><p>Mapping of facts to relevant statutes, articles, or precedents</p></li>
-<li><p>Identified missing or weak evidence</p></li>
-<li><p>Sentiment and credibility analysis (optional)</p></li>
-</ul>
+<section id="clean-recitals-column" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="clean-recitals-column"><span class="header-section-number">4.4</span> Clean <code>recitals</code> Column</h2>
+<p>We will start by ceating a function to clean the text in the <code>recitals</code> column.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_text(text):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="dv">\s</span><span class="op">+</span><span class="vs">'</span>, <span class="st">' '</span>, text)  <span class="co"># remove extra spaces</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="pp">[^</span><span class="dv">\w\s</span><span class="pp">]</span><span class="vs">'</span>, <span class="st">''</span>, text)  <span class="co"># remove punctuation</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> text.strip()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Applying the function:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'cleaned_recitals'</span>] <span class="op">=</span> df[<span class="st">'recitals'</span>].<span class="bu">apply</span>(clean_text)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="strength-assessment" class="level3">
-<h3 class="anchored" data-anchor-id="strength-assessment">Strength Assessment</h3>
+<section id="create-semantic-embeddings" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="create-semantic-embeddings"><span class="header-section-number">4.5</span> Create Semantic Embeddings</h2>
+<p>Embeddings turn text into numeric vectors that capture meaning. There are a few options we could choose from, but in this case we shall use <code>sentence_transformer</code> for its excellent multingual abilities.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> <span class="st">"mps"</span> <span class="cf">if</span> torch.backends.mps.is_available() <span class="cf">else</span> <span class="st">"cpu"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SentenceTransformer(<span class="st">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.to(device)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare texts </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> df[<span class="st">"cleaned_recitals"</span>].astype(<span class="bu">str</span>).tolist()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode in chunks to control memory; keep batch_size modest on MPS</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>emb_chunks <span class="op">=</span> []</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(texts), <span class="dv">2000</span>):  </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    batch <span class="op">=</span> texts[i:i<span class="op">+</span><span class="dv">2000</span>]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    embs <span class="op">=</span> model.encode(</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        batch,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span><span class="dv">64</span>,                          <span class="co"># 32–128 is usually fine; tweak if you see OOM</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        show_progress_bar<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        convert_to_numpy<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        normalize_embeddings<span class="op">=</span><span class="va">True</span>         </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    emb_chunks.append(embs.astype(<span class="st">"float32"</span>))   <span class="co"># FAISS prefers float32</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> np.vstack(emb_chunks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -667,13 +733,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span>
+      <a href="./ch1-2.html" class="pagination-link" aria-label="Processing Pipeline">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Processing Pipeline</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch1-1.html" class="pagination-link" aria-label="Input: Client Intake Packet">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Input: Client Intake Packet</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./project-2.html" class="pagination-link" aria-label="Project II">
+        <span class="nav-page-text">Project II</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

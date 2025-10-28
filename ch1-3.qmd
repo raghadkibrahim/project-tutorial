@@ -1,0 +1,25 @@
+# Output: AI Viability Report
+
+A structured, human-readable report containing:
+
+## Executive Summary
+
+- Case type and category
+
+- Predicted likelihood of success (expressed as a percentage and confidence interval)
+
+- Go / No-Go recommendation
+
+- Brief justification summary
+
+## Detailed Analysis
+
+- Key legal issues detected
+
+- Mapping of facts to relevant statutes, articles, or precedents
+
+- Identified missing or weak evidence
+
+- Sentiment and credibility analysis (optional)
+
+## Strength Assessment

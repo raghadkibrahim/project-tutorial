@@ -1,16 +1,5 @@
 ---
-title: Project I - Case Similarity Search Engine 
+title: Product Scope
 ---
 
-This project builds a legal‑AI stack around Dubai court verdicts. 
-
-Objectives:
-
-1. Clean and structure raw verdicts (facts, reasoning, verdict, statutes).
-2. Build retrieval and analytics pipelines.
-3. Evaluate embeddings and LLMs for precedent search and drafting.
-4. Ship a transparent, reproducible pipeline.
-
-I use Python in most chapters; code is baked into the pages, with caches for reproducibility.
-
-
+# Vision

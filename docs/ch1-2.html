@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Preprocessing – AI For Lawyers</title>
+<title>3&nbsp; Data Preprocessing – AI Case Viability Advisor</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,14 +58,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./project-2.html" rel="next">
+<link href="./ch1-3.html" rel="next">
 <link href="./ch1-1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -105,9 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -121,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-1.html">Project I - Case Similarity Search Engine</a></li><li class="breadcrumb-item"><a href="./ch1-2.html">Data Preprocessing</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-1.html">Product Scope</a></li><li class="breadcrumb-item"><a href="./ch1-2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Processing Pipeline</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="./index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AI For Lawyers</a> 
+      <a href="./">AI Case Viability Advisor</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -151,13 +148,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./project-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Project I - Case Similarity Search Engine</span></a>
+ <span class="menu-text">Product Scope</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -166,13 +163,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch1-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Explanation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Input: Client Intake Packet</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch1-2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Data Preprocessing</span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Processing Pipeline</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Output: AI Viability Report</span></span></a>
   </div>
 </li>
       </ul>
@@ -189,25 +192,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch2-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Text Cleaning &amp; Normalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Text Cleaning &amp; Normalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch2-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 2 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 2 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch2-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 2 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch2-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Drafting Assist &amp; Risk Controls</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drafting Assist &amp; Risk Controls</span></span></a>
   </div>
 </li>
       </ul>
@@ -222,20 +225,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#import-libraries" id="toc-import-libraries" class="nav-link active" data-scroll-target="#import-libraries">Import Libraries</a></li>
-  <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset">Load Dataset</a></li>
-  <li><a href="#show-a-sample" id="toc-show-a-sample" class="nav-link" data-scroll-target="#show-a-sample">Show a sample</a></li>
-  <li><a href="#clean-recitals-column" id="toc-clean-recitals-column" class="nav-link" data-scroll-target="#clean-recitals-column">Clean <code>recitals</code> Column</a></li>
-  <li><a href="#create-semantic-embeddings" id="toc-create-semantic-embeddings" class="nav-link" data-scroll-target="#create-semantic-embeddings">Create Semantic Embeddings</a></li>
+  <li><a href="#import-libraries" id="toc-import-libraries" class="nav-link active" data-scroll-target="#import-libraries"><span class="header-section-number">3.1</span> Import Libraries</a></li>
+  <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset"><span class="header-section-number">3.2</span> Load Dataset</a></li>
+  <li><a href="#show-a-sample" id="toc-show-a-sample" class="nav-link" data-scroll-target="#show-a-sample"><span class="header-section-number">3.3</span> Show a sample</a></li>
+  <li><a href="#clean-recitals-column" id="toc-clean-recitals-column" class="nav-link" data-scroll-target="#clean-recitals-column"><span class="header-section-number">3.4</span> Clean <code>recitals</code> Column</a></li>
+  <li><a href="#create-semantic-embeddings" id="toc-create-semantic-embeddings" class="nav-link" data-scroll-target="#create-semantic-embeddings"><span class="header-section-number">3.5</span> Create Semantic Embeddings</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-1.html">Project I - Case Similarity Search Engine</a></li><li class="breadcrumb-item"><a href="./ch1-2.html">Data Preprocessing</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-1.html">Product Scope</a></li><li class="breadcrumb-item"><a href="./ch1-2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Processing Pipeline</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Data Preprocessing</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Preprocessing</span></h1>
 </div>
 
 
@@ -252,258 +255,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="import-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="import-libraries">Import Libraries</h2>
-<div id="9c14cc88" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<section id="import-libraries" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="import-libraries"><span class="header-section-number">3.1</span> Import Libraries</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/opt/anaconda3/envs/openai_env/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm</code></pre>
-</div>
-</div>
 </section>
-<section id="load-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="load-dataset">Load Dataset</h2>
-<div id="562d0d57" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>verdicts <span class="op">=</span> load_dataset(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"csv"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    data_files<span class="op">=</span><span class="st">"hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    streaming<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    split<span class="op">=</span><span class="st">"train"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<section id="load-dataset" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="load-dataset"><span class="header-section-number">3.2</span> Load Dataset</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>verdicts <span class="op">=</span> load_dataset(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    data_files<span class="op">=</span><span class="st">"hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    streaming<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    split<span class="op">=</span><span class="st">"train"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="show-a-sample" class="level2">
-<h2 class="anchored" data-anchor-id="show-a-sample">Show a sample</h2>
-<div id="9de7a01b" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> <span class="bu">list</span>(verdicts.take(<span class="dv">5000</span>)) </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(sample)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df.head() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">case_subtype_code</th>
-<th data-quarto-table-cell-role="th">case_year</th>
-<th data-quarto-table-cell-role="th">case_serial_number</th>
-<th data-quarto-table-cell-role="th">decision_number</th>
-<th data-quarto-table-cell-role="th">judgment_date</th>
-<th data-quarto-table-cell-role="th">recitals</th>
-<th data-quarto-table-cell-role="th">insertion_date</th>
-<th data-quarto-table-cell-role="th">last_update_date</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>1</td>
-<td>1992</td>
-<td>1306</td>
-<td>14</td>
-<td>01-08-2022</td>
-<td>بعد الاطلاع على الأوراق و سماع المرافعة؛؛؛ &nbsp;&nbsp;&nbsp;...</td>
-<td>01-08-2022</td>
-<td>None</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>11</td>
-<td>2016</td>
-<td>629</td>
-<td>22</td>
-<td>19-09-2022</td>
-<td>بعد سماع المرافعة الشفوية ومطالعة الاوراق:حيث ...</td>
-<td>19-09-2022</td>
-<td>None</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>11</td>
-<td>2016</td>
-<td>1005</td>
-<td>18</td>
-<td>25-04-2024</td>
-<td>بعد مطالعة الملف الإلكتروني سماع المرافعة حيث ...</td>
-<td>25-04-2024</td>
-<td>None</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>11</td>
-<td>2018</td>
-<td>634</td>
-<td>21</td>
-<td>30-05-2022</td>
-<td>بعد سماع المرافعة والاطلاع على الأوراق &nbsp;: حيث ...</td>
-<td>30-05-2022</td>
-<td>None</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>11</td>
-<td>2019</td>
-<td>1959</td>
-<td>16</td>
-<td>28-02-2022</td>
-<td>بعد سماع المرافعة ومطالعة الاوراق . حيث ان وقا...</td>
-<td>28-02-2022</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
+<section id="show-a-sample" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="show-a-sample"><span class="header-section-number">3.3</span> Show a sample</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> <span class="bu">list</span>(verdicts.take(<span class="dv">5000</span>)) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(sample)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df.head() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="clean-recitals-column" class="level2">
-<h2 class="anchored" data-anchor-id="clean-recitals-column">Clean <code>recitals</code> Column</h2>
+<section id="clean-recitals-column" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="clean-recitals-column"><span class="header-section-number">3.4</span> Clean <code>recitals</code> Column</h2>
 <p>We will start by ceating a function to clean the text in the <code>recitals</code> column.</p>
-<div id="b98abeba" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_text(text):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="dv">\s</span><span class="op">+</span><span class="vs">'</span>, <span class="st">' '</span>, text)  <span class="co"># remove extra spaces</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="pp">[^</span><span class="dv">\w\s</span><span class="pp">]</span><span class="vs">'</span>, <span class="st">''</span>, text)  <span class="co"># remove punctuation</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> text.strip()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_text(text):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="dv">\s</span><span class="op">+</span><span class="vs">'</span>, <span class="st">' '</span>, text)  <span class="co"># remove extra spaces</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="pp">[^</span><span class="dv">\w\s</span><span class="pp">]</span><span class="vs">'</span>, <span class="st">''</span>, text)  <span class="co"># remove punctuation</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> text.strip()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Applying the function:</p>
-<div id="718567af" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'cleaned_recitals'</span>] <span class="op">=</span> df[<span class="st">'recitals'</span>].<span class="bu">apply</span>(clean_text)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">case_subtype_code</th>
-<th data-quarto-table-cell-role="th">case_year</th>
-<th data-quarto-table-cell-role="th">case_serial_number</th>
-<th data-quarto-table-cell-role="th">decision_number</th>
-<th data-quarto-table-cell-role="th">judgment_date</th>
-<th data-quarto-table-cell-role="th">recitals</th>
-<th data-quarto-table-cell-role="th">insertion_date</th>
-<th data-quarto-table-cell-role="th">last_update_date</th>
-<th data-quarto-table-cell-role="th">cleaned_recitals</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>1</td>
-<td>1992</td>
-<td>1306</td>
-<td>14</td>
-<td>01-08-2022</td>
-<td>بعد الاطلاع على الأوراق و سماع المرافعة؛؛؛ &nbsp;&nbsp;&nbsp;...</td>
-<td>01-08-2022</td>
-<td>None</td>
-<td>بعد الاطلاع على الأوراق و سماع المرافعة وحيث إ...</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>11</td>
-<td>2016</td>
-<td>629</td>
-<td>22</td>
-<td>19-09-2022</td>
-<td>بعد سماع المرافعة الشفوية ومطالعة الاوراق:حيث ...</td>
-<td>19-09-2022</td>
-<td>None</td>
-<td>بعد سماع المرافعة الشفوية ومطالعة الاوراقحيث ا...</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>11</td>
-<td>2016</td>
-<td>1005</td>
-<td>18</td>
-<td>25-04-2024</td>
-<td>بعد مطالعة الملف الإلكتروني سماع المرافعة حيث ...</td>
-<td>25-04-2024</td>
-<td>None</td>
-<td>بعد مطالعة الملف الإلكتروني سماع المرافعة حيث ...</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>11</td>
-<td>2018</td>
-<td>634</td>
-<td>21</td>
-<td>30-05-2022</td>
-<td>بعد سماع المرافعة والاطلاع على الأوراق &nbsp;: حيث ...</td>
-<td>30-05-2022</td>
-<td>None</td>
-<td>بعد سماع المرافعة والاطلاع على الأوراق حيث إن...</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>11</td>
-<td>2019</td>
-<td>1959</td>
-<td>16</td>
-<td>28-02-2022</td>
-<td>بعد سماع المرافعة ومطالعة الاوراق . حيث ان وقا...</td>
-<td>28-02-2022</td>
-<td>None</td>
-<td>بعد سماع المرافعة ومطالعة الاوراق حيث ان وقائ...</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'cleaned_recitals'</span>] <span class="op">=</span> df[<span class="st">'recitals'</span>].<span class="bu">apply</span>(clean_text)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="create-semantic-embeddings" class="level2">
-<h2 class="anchored" data-anchor-id="create-semantic-embeddings">Create Semantic Embeddings</h2>
+<section id="create-semantic-embeddings" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="create-semantic-embeddings"><span class="header-section-number">3.5</span> Create Semantic Embeddings</h2>
 <p>Embeddings turn text into numeric vectors that capture meaning. There are a few options we could choose from, but in this case we shall use <code>sentence_transformer</code> for its excellent multingual abilities.</p>
-<div id="d696540c" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> <span class="st">"mps"</span> <span class="cf">if</span> torch.backends.mps.is_available() <span class="cf">else</span> <span class="st">"cpu"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> <span class="st">"mps"</span> <span class="cf">if</span> torch.backends.mps.is_available() <span class="cf">else</span> <span class="st">"cpu"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SentenceTransformer(<span class="st">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.to(device)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare texts </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> df[<span class="st">"cleaned_recitals"</span>].astype(<span class="bu">str</span>).tolist()</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SentenceTransformer(<span class="st">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.to(device)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="d2fd7609" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare texts </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> df[<span class="st">"cleaned_recitals"</span>].astype(<span class="bu">str</span>).tolist()</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode in chunks to control memory; keep batch_size modest on MPS</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>emb_chunks <span class="op">=</span> []</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(texts), <span class="dv">2000</span>):  </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    batch <span class="op">=</span> texts[i:i<span class="op">+</span><span class="dv">2000</span>]</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    embs <span class="op">=</span> model.encode(</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        batch,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span><span class="dv">64</span>,                          <span class="co"># 32–128 is usually fine; tweak if you see OOM</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        show_progress_bar<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        convert_to_numpy<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        normalize_embeddings<span class="op">=</span><span class="va">True</span>         </span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    emb_chunks.append(embs.astype(<span class="st">"float32"</span>))   <span class="co"># FAISS prefers float32</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> np.vstack(emb_chunks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Batches:   0%|          | 0/32 [00:00&lt;?, ?it/s]Batches:   3%|▎         | 1/32 [00:00&lt;00:18,  1.71it/s]Batches:   6%|▋         | 2/32 [00:00&lt;00:13,  2.28it/s]Batches:   9%|▉         | 3/32 [00:01&lt;00:11,  2.43it/s]Batches:  12%|█▎        | 4/32 [00:01&lt;00:10,  2.67it/s]Batches:  16%|█▌        | 5/32 [00:01&lt;00:10,  2.70it/s]Batches:  19%|█▉        | 6/32 [00:02&lt;00:09,  2.81it/s]Batches:  22%|██▏       | 7/32 [00:02&lt;00:08,  2.97it/s]Batches:  25%|██▌       | 8/32 [00:02&lt;00:07,  3.02it/s]Batches:  28%|██▊       | 9/32 [00:03&lt;00:07,  3.19it/s]Batches:  31%|███▏      | 10/32 [00:03&lt;00:06,  3.31it/s]Batches:  34%|███▍      | 11/32 [00:03&lt;00:06,  3.44it/s]Batches:  38%|███▊      | 12/32 [00:04&lt;00:05,  3.47it/s]Batches:  41%|████      | 13/32 [00:04&lt;00:05,  3.41it/s]Batches:  44%|████▍     | 14/32 [00:04&lt;00:05,  3.46it/s]Batches:  47%|████▋     | 15/32 [00:04&lt;00:04,  3.63it/s]Batches:  50%|█████     | 16/32 [00:05&lt;00:04,  3.75it/s]Batches:  53%|█████▎    | 17/32 [00:05&lt;00:03,  3.79it/s]Batches:  56%|█████▋    | 18/32 [00:05&lt;00:03,  3.90it/s]Batches:  59%|█████▉    | 19/32 [00:05&lt;00:03,  4.02it/s]Batches:  62%|██████▎   | 20/32 [00:06&lt;00:02,  4.14it/s]Batches:  66%|██████▌   | 21/32 [00:06&lt;00:02,  4.22it/s]Batches:  69%|██████▉   | 22/32 [00:06&lt;00:02,  4.30it/s]Batches:  72%|███████▏  | 23/32 [00:06&lt;00:02,  4.38it/s]Batches:  75%|███████▌  | 24/32 [00:06&lt;00:01,  4.44it/s]Batches:  78%|███████▊  | 25/32 [00:07&lt;00:01,  4.51it/s]Batches:  81%|████████▏ | 26/32 [00:07&lt;00:01,  4.58it/s]Batches:  84%|████████▍ | 27/32 [00:07&lt;00:01,  4.64it/s]Batches:  88%|████████▊ | 28/32 [00:07&lt;00:00,  4.49it/s]Batches:  91%|█████████ | 29/32 [00:08&lt;00:00,  4.47it/s]Batches:  94%|█████████▍| 30/32 [00:08&lt;00:00,  4.58it/s]Batches:  97%|█████████▋| 31/32 [00:08&lt;00:00,  4.68it/s]Batches: 100%|██████████| 32/32 [00:08&lt;00:00,  3.75it/s]
-Batches:   0%|          | 0/32 [00:00&lt;?, ?it/s]Batches:   3%|▎         | 1/32 [00:00&lt;00:11,  2.67it/s]Batches:   6%|▋         | 2/32 [00:00&lt;00:10,  2.85it/s]Batches:   9%|▉         | 3/32 [00:01&lt;00:09,  3.01it/s]Batches:  12%|█▎        | 4/32 [00:01&lt;00:08,  3.16it/s]Batches:  16%|█▌        | 5/32 [00:01&lt;00:08,  3.27it/s]Batches:  19%|█▉        | 6/32 [00:01&lt;00:07,  3.36it/s]Batches:  22%|██▏       | 7/32 [00:02&lt;00:07,  3.46it/s]Batches:  25%|██▌       | 8/32 [00:02&lt;00:06,  3.55it/s]Batches:  28%|██▊       | 9/32 [00:02&lt;00:06,  3.61it/s]Batches:  31%|███▏      | 10/32 [00:02&lt;00:06,  3.59it/s]Batches:  34%|███▍      | 11/32 [00:03&lt;00:05,  3.64it/s]Batches:  38%|███▊      | 12/32 [00:03&lt;00:05,  3.70it/s]Batches:  41%|████      | 13/32 [00:03&lt;00:05,  3.78it/s]Batches:  44%|████▍     | 14/32 [00:04&lt;00:04,  3.80it/s]Batches:  47%|████▋     | 15/32 [00:04&lt;00:04,  3.79it/s]Batches:  50%|█████     | 16/32 [00:04&lt;00:04,  3.78it/s]Batches:  53%|█████▎    | 17/32 [00:04&lt;00:03,  3.91it/s]Batches:  56%|█████▋    | 18/32 [00:05&lt;00:03,  4.03it/s]Batches:  59%|█████▉    | 19/32 [00:05&lt;00:03,  4.12it/s]Batches:  62%|██████▎   | 20/32 [00:05&lt;00:02,  4.18it/s]Batches:  66%|██████▌   | 21/32 [00:05&lt;00:02,  4.20it/s]Batches:  69%|██████▉   | 22/32 [00:05&lt;00:02,  4.15it/s]Batches:  72%|███████▏  | 23/32 [00:06&lt;00:02,  4.25it/s]Batches:  75%|███████▌  | 24/32 [00:06&lt;00:01,  4.30it/s]Batches:  78%|███████▊  | 25/32 [00:06&lt;00:01,  4.36it/s]Batches:  81%|████████▏ | 26/32 [00:06&lt;00:01,  4.43it/s]Batches:  84%|████████▍ | 27/32 [00:07&lt;00:01,  4.47it/s]Batches:  88%|████████▊ | 28/32 [00:07&lt;00:00,  4.53it/s]Batches:  91%|█████████ | 29/32 [00:07&lt;00:00,  4.62it/s]Batches:  94%|█████████▍| 30/32 [00:07&lt;00:00,  4.68it/s]Batches:  97%|█████████▋| 31/32 [00:07&lt;00:00,  4.73it/s]Batches: 100%|██████████| 32/32 [00:07&lt;00:00,  4.03it/s]
-Batches:   0%|          | 0/16 [00:00&lt;?, ?it/s]Batches:   6%|▋         | 1/16 [00:00&lt;00:06,  2.25it/s]Batches:  12%|█▎        | 2/16 [00:00&lt;00:05,  2.73it/s]Batches:  19%|█▉        | 3/16 [00:01&lt;00:04,  2.84it/s]Batches:  25%|██▌       | 4/16 [00:01&lt;00:03,  3.02it/s]Batches:  31%|███▏      | 5/16 [00:01&lt;00:03,  3.24it/s]Batches:  38%|███▊      | 6/16 [00:01&lt;00:02,  3.47it/s]Batches:  44%|████▍     | 7/16 [00:02&lt;00:02,  3.61it/s]Batches:  50%|█████     | 8/16 [00:02&lt;00:02,  3.79it/s]Batches:  56%|█████▋    | 9/16 [00:02&lt;00:01,  3.92it/s]Batches:  62%|██████▎   | 10/16 [00:02&lt;00:01,  4.08it/s]Batches:  69%|██████▉   | 11/16 [00:03&lt;00:01,  4.18it/s]Batches:  75%|███████▌  | 12/16 [00:03&lt;00:00,  4.26it/s]Batches:  81%|████████▏ | 13/16 [00:03&lt;00:00,  4.37it/s]Batches:  88%|████████▊ | 14/16 [00:03&lt;00:00,  4.41it/s]Batches:  94%|█████████▍| 15/16 [00:03&lt;00:00,  4.52it/s]Batches: 100%|██████████| 16/16 [00:04&lt;00:00,  4.73it/s]Batches: 100%|██████████| 16/16 [00:04&lt;00:00,  3.86it/s]</code></pre>
-</div>
-</div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode in chunks to control memory; keep batch_size modest on MPS</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>emb_chunks <span class="op">=</span> []</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(texts), <span class="dv">2000</span>):  </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    batch <span class="op">=</span> texts[i:i<span class="op">+</span><span class="dv">2000</span>]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    embs <span class="op">=</span> model.encode(</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        batch,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span><span class="dv">64</span>,                          <span class="co"># 32–128 is usually fine; tweak if you see OOM</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        show_progress_bar<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        convert_to_numpy<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        normalize_embeddings<span class="op">=</span><span class="va">True</span>         </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    emb_chunks.append(embs.astype(<span class="st">"float32"</span>))   <span class="co"># FAISS prefers float32</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> np.vstack(emb_chunks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -911,13 +733,13 @@ Batches:   0%|          | 0/16 [00:00&lt;?, ?it/s]Batches:   6%|▋         | 1/
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ch1-1.html" class="pagination-link" aria-label="Explanation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Explanation</span></span>
+      <a href="./ch1-1.html" class="pagination-link" aria-label="Input: Client Intake Packet">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Input: Client Intake Packet</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./project-2.html" class="pagination-link" aria-label="Project II">
-        <span class="nav-page-text">Project II</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ch1-3.html" class="pagination-link" aria-label="Output: AI Viability Report">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Output: AI Viability Report</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
