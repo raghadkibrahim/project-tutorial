@@ -1,5 +1,6 @@
 ---
 title: Product Scope
+title-block-banner: true
 ---
 
 # Vision

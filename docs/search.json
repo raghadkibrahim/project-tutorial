@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "AI Case Viability Advisor",
     "section": "",
-    "text": "1 Overview\nThe AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\n\n2 Product Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
+    "text": "Preface",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+      "Preface"
     ]
   },
   {
@@ -259,6 +259,178 @@
     "title": "4  Data Preprocessing",
     "section": "4.5 Create Semantic Embeddings",
     "text": "4.5 Create Semantic Embeddings\nEmbeddings turn text into numeric vectors that capture meaning. There are a few options we could choose from, but in this case we shall use sentence_transformer for its excellent multingual abilities.\n\n#| eval: false\nimport torch\nfrom sentence_transformers import SentenceTransformer\n\ndevice = \"mps\" if torch.backends.mps.is_available() else \"cpu\"\n\nmodel = SentenceTransformer(\"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2\")\nmodel = model.to(device)\n#| eval: false\n\n# Prepare texts \ntexts = df[\"cleaned_recitals\"].astype(str).tolist()\n\n# Encode in chunks to control memory; keep batch_size modest on MPS\nemb_chunks = []\nfor i in range(0, len(texts), 2000):  \n    batch = texts[i:i+2000]\n    embs = model.encode(\n        batch,\n        batch_size=64,                          # 32–128 is usually fine; tweak if you see OOM\n        show_progress_bar=True,\n        convert_to_numpy=True,\n        normalize_embeddings=True         \n    )\n    emb_chunks.append(embs.astype(\"float32\"))   # FAISS prefers float32\nembeddings = np.vstack(emb_chunks)",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "_1_0_product_scope.html",
+    "href": "_1_0_product_scope.html",
+    "title": "Product Scope",
+    "section": "",
+    "text": "Vision",
+    "crumbs": [
+      "Product Scope"
+    ]
+  },
+  {
+    "objectID": "_0_intro.html",
+    "href": "_0_intro.html",
+    "title": "2  Overview",
+    "section": "",
+    "text": "3 Overview\nThe AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\n\n4 Product Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "_1_1.html",
+    "href": "_1_1.html",
+    "title": "3  Input: Client Intake Packet",
+    "section": "",
+    "text": "The system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Input: Client Intake Packet</span>"
+    ]
+  },
+  {
+    "objectID": "_1_2.html",
+    "href": "_1_2.html",
+    "title": "4  Processing Pipeline",
+    "section": "",
+    "text": "kjljkj",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Processing Pipeline</span>"
+    ]
+  },
+  {
+    "objectID": "_1_3.html",
+    "href": "_1_3.html",
+    "title": "5  Output: AI Viability Report",
+    "section": "",
+    "text": "5.1 Executive Summary\nA structured, human-readable report containing:",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "_1_3.html#executive-summary",
+    "href": "_1_3.html#executive-summary",
+    "title": "5  Output: AI Viability Report",
+    "section": "",
+    "text": "Case type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "_1_3.html#detailed-analysis",
+    "href": "_1_3.html#detailed-analysis",
+    "title": "5  Output: AI Viability Report",
+    "section": "5.2 Detailed Analysis",
+    "text": "5.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "_1_3.html#strength-assessment",
+    "href": "_1_3.html#strength-assessment",
+    "title": "5  Output: AI Viability Report",
+    "section": "5.3 Strength Assessment",
+    "text": "5.3 Strength Assessment",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/_1_0_product_scope.html",
+    "href": "chapters/_1_0_product_scope.html",
+    "title": "Product Scope",
+    "section": "",
+    "text": "Vision",
+    "crumbs": [
+      "Product Scope"
+    ]
+  },
+  {
+    "objectID": "chapters/_0_intro.html",
+    "href": "chapters/_0_intro.html",
+    "title": "1  Overview",
+    "section": "",
+    "text": "2 Overview\nThe AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\n\n3 Product Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/_1_1.html",
+    "href": "chapters/_1_1.html",
+    "title": "2  Input: Client Intake Packet",
+    "section": "",
+    "text": "The system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Input: Client Intake Packet</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/_1_2.html",
+    "href": "chapters/_1_2.html",
+    "title": "3  Processing Pipeline",
+    "section": "",
+    "text": "kjljkj",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/_1_3.html",
+    "href": "chapters/_1_3.html",
+    "title": "4  Output: AI Viability Report",
+    "section": "",
+    "text": "4.1 Executive Summary\nA structured, human-readable report containing:",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/_1_3.html#executive-summary",
+    "href": "chapters/_1_3.html#executive-summary",
+    "title": "4  Output: AI Viability Report",
+    "section": "",
+    "text": "Case type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/_1_3.html#detailed-analysis",
+    "href": "chapters/_1_3.html#detailed-analysis",
+    "title": "4  Output: AI Viability Report",
+    "section": "4.2 Detailed Analysis",
+    "text": "4.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
+    "crumbs": [
+      "Product Scope",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/_1_3.html#strength-assessment",
+    "href": "chapters/_1_3.html#strength-assessment",
+    "title": "4  Output: AI Viability Report",
+    "section": "4.3 Strength Assessment",
+    "text": "4.3 Strength Assessment",
     "crumbs": [
       "Product Scope",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"

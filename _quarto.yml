@@ -9,12 +9,12 @@ book:
   title: "AI Case Viability Advisor"
   chapters:
     - index.qmd
-    - _0_1_intro.qmd
-    - part: _1_0_product_scope.qmd
+    - chapters/_0_intro.qmd
+    - part: chapters/_1_0_product_scope.qmd
       chapters: 
-        - _1_1.qmd
-        - _1_2.qmd
-        - _1_3.qmd
+        - chapters/_1_1.qmd
+        - chapters/_1_2.qmd
+        - chapters/_1_3.qmd
     - part: project-2.qmd
       chapters:
         - ch2-1.qmd
