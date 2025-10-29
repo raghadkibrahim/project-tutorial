@@ -1,71 +1,20 @@
 {
   "index.qmd": {
-    "index.html": "36ffe751"
+    "index.html": "52c39f37"
   },
-  "intro.qmd": {
-    "intro.html": "c833c363"
+  "chapters/chapter1/introduction_and_overview.qmd": {
+    "introduction_and_overview.html": "fda63e9d"
   },
-  "summary.qmd": {
-    "summary.html": "0b03c41e"
+  "chapters/chapter2/product.qmd": {
+    "product.html": "6a7db83d"
   },
-  "references.qmd": {
-    "references.html": "993bd52c"
+  "chapters/chapter3/data.qmd": {
+    "data.html": "8ef6c5a0"
   },
-  "project-1.qmd": {
-    "project-1.html": "e5b42cff"
+  "chapters/chapter4/evaluation_and_benchmarking.qmd": {
+    "evaluation_and_benchmarking.html": "ec75a27e"
   },
-  "project-2.qmd": {
-    "project-2.html": "29c9c538"
-  },
-  "ch2-1.qmd": {
-    "ch2-1.html": "d818eaab"
-  },
-  "ch1-1.qmd": {
-    "ch1-1.html": "120e99ec"
-  },
-  "ch1-2.qmd": {
-    "ch1-2.html": "e849be51"
-  },
-  "ch2-2.qmd": {
-    "ch2-2.html": "3fcd59da"
-  },
-  "ch2-3.qmd": {
-    "ch2-3.html": "e392526d"
-  },
-  "ch2-4.qmd": {
-    "ch2-4.html": "7fd3b13b"
-  },
-  "ch1-3.qmd": {
-    "ch1-3.html": "ba838464"
-  },
-  "_1_0_product_scope.qmd": {
-    "_1_0_product_scope.html": "13156788"
-  },
-  "_0_intro.qmd": {
-    "_0_intro.html": "661bc3b9"
-  },
-  "_1_1.qmd": {
-    "_1_1.html": "f0b9e12e"
-  },
-  "_1_2.qmd": {
-    "_1_2.html": "d0e2e932"
-  },
-  "_1_3.qmd": {
-    "_1_3.html": "5f00dc51"
-  },
-  "chapters/_0_intro.qmd": {
-    "_0_intro.html": "023d81da"
-  },
-  "chapters/_1_0_product_scope.qmd": {
-    "_1_0_product_scope.html": "30b539a0"
-  },
-  "chapters/_1_1.qmd": {
-    "_1_1.html": "d9d4440c"
-  },
-  "chapters/_1_2.qmd": {
-    "_1_2.html": "a61f23da"
-  },
-  "chapters/_1_3.qmd": {
-    "_1_3.html": "35075cb4"
+  "chapters/appendices/tasks.qmd": {
+    "tasks.html": "5165f08b"
   }
 }

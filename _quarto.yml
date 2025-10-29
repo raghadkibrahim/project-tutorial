@@ -4,18 +4,31 @@ project:
 
 book:
   title: "AI Case Viability Advisor"
+  repo-url: https://github.com/raghadkibrahim/project-tutorial
+  sidebar:
+    style: "floating"
+    collapse-level: 1
+    border: true
+    search: true
+  page-footer:
+    left: |
+      All content licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) <br> &copy; Bernd Bischl, Raphael Sonabend, Lars Kotthoff, Michel Lang.
+    center: "[GitHub](https://github.com/raghadkibrahim/project-tutorial)"
+    right: Built with [Quarto](https://quarto.org/).
+    background: "#f8f9fa"
   chapters:
     - index.qmd
-    - _0_intro.qmd
-    - part: _1_0_product_scope.qmd
-      chapters: 
-        - _1_1.qmd
-        - _1_2.qmd
-        - _1_3.qmd
-  sidebar:
-    style: docked
-    background: light
-
+    - chapters/chapter1/introduction_and_overview.qmd
+    - part: "Fundamentals"
+      chapters:
+      - chapters/chapter2/product.qmd
+      - chapters/chapter3/data.qmd
+    - part: "Tuning and Feature Selection"
+      chapters:
+      - chapters/chapter4/evaluation_and_benchmarking.qmd
+  appendices:
+    - chapters/appendices/tasks.qmd # online only
+  
 
 bibliography: references.bib
 

@@ -10,359 +10,8 @@
     ]
   },
   {
-    "objectID": "project-1.html",
-    "href": "project-1.html",
-    "title": "Product Scope",
-    "section": "",
-    "text": "Input: Client Intake Packet\nThe system ingests the same materials a lawyer would review in an initial consultation:",
-    "crumbs": [
-      "Product Scope"
-    ]
-  },
-  {
-    "objectID": "ch1-1.html",
-    "href": "ch1-1.html",
-    "title": "2  Input: Client Intake Packet",
-    "section": "",
-    "text": "The system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Input: Client Intake Packet</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-2.html",
-    "href": "ch1-2.html",
-    "title": "3  Data Preprocessing",
-    "section": "",
-    "text": "3.1 Import Libraries",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-2.html#load-dataset",
-    "href": "ch1-2.html#load-dataset",
-    "title": "3  Data Preprocessing",
-    "section": "3.2 Load Dataset",
-    "text": "3.2 Load Dataset\nverdicts = load_dataset(\n    \"csv\",\n    data_files=\"hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv\",\n    streaming=True,\n    split=\"train\",\n)",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-2.html#show-a-sample",
-    "href": "ch1-2.html#show-a-sample",
-    "title": "3  Data Preprocessing",
-    "section": "3.3 Show a sample",
-    "text": "3.3 Show a sample\nimport itertools\n\nsample = list(verdicts.take(5000)) \ndf = pd.DataFrame(sample)\n\ndf.head()",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-2.html#clean-recitals-column",
-    "href": "ch1-2.html#clean-recitals-column",
-    "title": "3  Data Preprocessing",
-    "section": "3.4 Clean recitals Column",
-    "text": "3.4 Clean recitals Column\nWe will start by ceating a function to clean the text in the recitals column.\ndef clean_text(text):\n    text = re.sub(r'\\s+', ' ', text)  # remove extra spaces\n    text = re.sub(r'[^\\w\\s]', '', text)  # remove punctuation\n    return text.strip()\nApplying the function:\n#| echo: true\n#| eval: false\nimport re\n\ndf['cleaned_recitals'] = df['recitals'].apply(clean_text)\n\ndf.head()",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-2.html#create-semantic-embeddings",
-    "href": "ch1-2.html#create-semantic-embeddings",
-    "title": "3  Data Preprocessing",
-    "section": "3.5 Create Semantic Embeddings",
-    "text": "3.5 Create Semantic Embeddings\nEmbeddings turn text into numeric vectors that capture meaning. There are a few options we could choose from, but in this case we shall use sentence_transformer for its excellent multingual abilities.\n\n#| eval: false\nimport torch\nfrom sentence_transformers import SentenceTransformer\n\ndevice = \"mps\" if torch.backends.mps.is_available() else \"cpu\"\n\nmodel = SentenceTransformer(\"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2\")\nmodel = model.to(device)\n#| eval: false\n\n# Prepare texts \ntexts = df[\"cleaned_recitals\"].astype(str).tolist()\n\n# Encode in chunks to control memory; keep batch_size modest on MPS\nemb_chunks = []\nfor i in range(0, len(texts), 2000):  \n    batch = texts[i:i+2000]\n    embs = model.encode(\n        batch,\n        batch_size=64,                          # 32–128 is usually fine; tweak if you see OOM\n        show_progress_bar=True,\n        convert_to_numpy=True,\n        normalize_embeddings=True         \n    )\n    emb_chunks.append(embs.astype(\"float32\"))   # FAISS prefers float32\nembeddings = np.vstack(emb_chunks)",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "project-2.html",
-    "href": "project-2.html",
-    "title": "Project II",
-    "section": "",
-    "text": "We move from clean data → embeddings → retrieval → evaluation.",
-    "crumbs": [
-      "Project II"
-    ]
-  },
-  {
-    "objectID": "ch2-1.html",
-    "href": "ch2-1.html",
-    "title": "2  Chapter 2-1",
-    "section": "",
-    "text": "import re\nimport pandas as pd\n\n# example cleaner\ndef clean_ar(text):\n    if not isinstance(text, str):\n        return ''\n    text = re.sub(r\"[\\u0617-\\u061A\\u064B-\\u0652]\", \"\", text)  # remove diacritics\n    text = re.sub(r\"\\s+\", \" \", text).strip()\n    return text\n\n# apply\n# df['cleaned_recitals'] = df['recitals'].map(clean_ar)",
-    "crumbs": [
-      "Project II",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Text Cleaning & Normalization</span>"
-    ]
-  },
-  {
-    "objectID": "ch2-4.html",
-    "href": "ch2-4.html",
-    "title": "8  Chapter 2.4",
-    "section": "",
-    "text": "We show prompt templates, red‑teaming, and guardrails for legal use.",
-    "crumbs": [
-      "Project II",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Drafting Assist & Risk Controls</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#product-scope",
-    "href": "index.html#product-scope",
-    "title": "AI Case Viability Advisor",
-    "section": "0.2 Product Scope",
-    "text": "0.2 Product Scope\n\nInput: Client Intake Packet\n\nThe system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>**Overview**</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#input-client-intake-packet",
-    "href": "index.html#input-client-intake-packet",
-    "title": "AI Case Viability Advisor",
-    "section": "2.1 Input: Client Intake Packet",
-    "text": "2.1 Input: Client Intake Packet\nThe system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>**Overview**</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#processing-pipeline",
-    "href": "index.html#processing-pipeline",
-    "title": "AI Case Viability Advisor",
-    "section": "2.2 Processing Pipeline",
-    "text": "2.2 Processing Pipeline",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>**Overview**</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#output-ai-viability-report",
-    "href": "index.html#output-ai-viability-report",
-    "title": "AI Case Viability Advisor",
-    "section": "2.3 Output: AI Viability Report",
-    "text": "2.3 Output: AI Viability Report\nA structured, human-readable report containing:\n\n2.3.1 Executive Summary\n\nCase type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary\n\n\n\n2.3.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)\n\n\n\n2.3.3 Strength Assessment",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>**Overview**</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-2.html#import-libraries",
-    "href": "ch1-2.html#import-libraries",
-    "title": "3  Data Preprocessing",
-    "section": "",
-    "text": "import pandas as pd\nfrom pathlib import Path\nfrom datasets import load_dataset\nimport numpy as np",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "project-1.html#input-client-intake-packet",
-    "href": "project-1.html#input-client-intake-packet",
-    "title": "Product Scope",
-    "section": "",
-    "text": "Client’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.",
-    "crumbs": [
-      "Product Scope"
-    ]
-  },
-  {
-    "objectID": "project-1.html#processing-pipeline",
-    "href": "project-1.html#processing-pipeline",
-    "title": "Product Scope",
-    "section": "Processing Pipeline",
-    "text": "Processing Pipeline",
-    "crumbs": [
-      "Product Scope"
-    ]
-  },
-  {
-    "objectID": "project-1.html#output-ai-viability-report",
-    "href": "project-1.html#output-ai-viability-report",
-    "title": "Product Scope",
-    "section": "Output: AI Viability Report",
-    "text": "Output: AI Viability Report\nA structured, human-readable report containing:\n\nExecutive Summary\n\nCase type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary\n\n\n\nDetailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)\n\n\n\nStrength Assessment",
-    "crumbs": [
-      "Product Scope"
-    ]
-  },
-  {
-    "objectID": "ch1-3.html",
-    "href": "ch1-3.html",
-    "title": "4  Data Preprocessing",
-    "section": "",
-    "text": "4.1 Import Libraries",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-3.html#import-libraries",
-    "href": "ch1-3.html#import-libraries",
-    "title": "4  Data Preprocessing",
-    "section": "",
-    "text": "import pandas as pd\nfrom pathlib import Path\nfrom datasets import load_dataset\nimport numpy as np",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-3.html#load-dataset",
-    "href": "ch1-3.html#load-dataset",
-    "title": "4  Data Preprocessing",
-    "section": "4.2 Load Dataset",
-    "text": "4.2 Load Dataset\nverdicts = load_dataset(\n    \"csv\",\n    data_files=\"hf://datasets/raghadkibrahim/dxb_court_data/Verdicts.csv\",\n    streaming=True,\n    split=\"train\",\n)",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-3.html#show-a-sample",
-    "href": "ch1-3.html#show-a-sample",
-    "title": "4  Data Preprocessing",
-    "section": "4.3 Show a sample",
-    "text": "4.3 Show a sample\nimport itertools\n\nsample = list(verdicts.take(5000)) \ndf = pd.DataFrame(sample)\n\ndf.head()",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-3.html#clean-recitals-column",
-    "href": "ch1-3.html#clean-recitals-column",
-    "title": "4  Data Preprocessing",
-    "section": "4.4 Clean recitals Column",
-    "text": "4.4 Clean recitals Column\nWe will start by ceating a function to clean the text in the recitals column.\ndef clean_text(text):\n    text = re.sub(r'\\s+', ' ', text)  # remove extra spaces\n    text = re.sub(r'[^\\w\\s]', '', text)  # remove punctuation\n    return text.strip()\nApplying the function:\n#| echo: true\n#| eval: false\nimport re\n\ndf['cleaned_recitals'] = df['recitals'].apply(clean_text)\n\ndf.head()",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "ch1-3.html#create-semantic-embeddings",
-    "href": "ch1-3.html#create-semantic-embeddings",
-    "title": "4  Data Preprocessing",
-    "section": "4.5 Create Semantic Embeddings",
-    "text": "4.5 Create Semantic Embeddings\nEmbeddings turn text into numeric vectors that capture meaning. There are a few options we could choose from, but in this case we shall use sentence_transformer for its excellent multingual abilities.\n\n#| eval: false\nimport torch\nfrom sentence_transformers import SentenceTransformer\n\ndevice = \"mps\" if torch.backends.mps.is_available() else \"cpu\"\n\nmodel = SentenceTransformer(\"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2\")\nmodel = model.to(device)\n#| eval: false\n\n# Prepare texts \ntexts = df[\"cleaned_recitals\"].astype(str).tolist()\n\n# Encode in chunks to control memory; keep batch_size modest on MPS\nemb_chunks = []\nfor i in range(0, len(texts), 2000):  \n    batch = texts[i:i+2000]\n    embs = model.encode(\n        batch,\n        batch_size=64,                          # 32–128 is usually fine; tweak if you see OOM\n        show_progress_bar=True,\n        convert_to_numpy=True,\n        normalize_embeddings=True         \n    )\n    emb_chunks.append(embs.astype(\"float32\"))   # FAISS prefers float32\nembeddings = np.vstack(emb_chunks)",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "_1_0_product_scope.html",
-    "href": "_1_0_product_scope.html",
-    "title": "Product Scope",
-    "section": "",
-    "text": "Vision",
-    "crumbs": [
-      "Product Scope"
-    ]
-  },
-  {
-    "objectID": "_0_intro.html",
-    "href": "_0_intro.html",
-    "title": "2  Overview",
-    "section": "",
-    "text": "3 Overview\nThe AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\n\n4 Product Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Overview</span>"
-    ]
-  },
-  {
-    "objectID": "_1_1.html",
-    "href": "_1_1.html",
-    "title": "3  Input: Client Intake Packet",
-    "section": "",
-    "text": "The system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Input: Client Intake Packet</span>"
-    ]
-  },
-  {
-    "objectID": "_1_2.html",
-    "href": "_1_2.html",
-    "title": "4  Processing Pipeline",
-    "section": "",
-    "text": "kjljkj",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "_1_3.html",
-    "href": "_1_3.html",
-    "title": "5  Output: AI Viability Report",
-    "section": "",
-    "text": "5.1 Executive Summary\nA structured, human-readable report containing:",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "_1_3.html#executive-summary",
-    "href": "_1_3.html#executive-summary",
-    "title": "5  Output: AI Viability Report",
-    "section": "",
-    "text": "Case type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "_1_3.html#detailed-analysis",
-    "href": "_1_3.html#detailed-analysis",
-    "title": "5  Output: AI Viability Report",
-    "section": "5.2 Detailed Analysis",
-    "text": "5.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "_1_3.html#strength-assessment",
-    "href": "_1_3.html#strength-assessment",
-    "title": "5  Output: AI Viability Report",
-    "section": "5.3 Strength Assessment",
-    "text": "5.3 Strength Assessment",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/_1_0_product_scope.html",
-    "href": "chapters/_1_0_product_scope.html",
-    "title": "Product Scope",
-    "section": "",
-    "text": "Vision",
-    "crumbs": [
-      "Product Scope"
-    ]
-  },
-  {
-    "objectID": "chapters/_0_intro.html",
-    "href": "chapters/_0_intro.html",
+    "objectID": "chapters/chapter1/introduction_and_overview.html",
+    "href": "chapters/chapter1/introduction_and_overview.html",
     "title": "Overview",
     "section": "",
     "text": "The AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\nProduct Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
@@ -371,68 +20,57 @@
     ]
   },
   {
-    "objectID": "chapters/_1_1.html",
-    "href": "chapters/_1_1.html",
-    "title": "1  Input: Client Intake Packet",
+    "objectID": "chapters/chapter2/product.html",
+    "href": "chapters/chapter2/product.html",
+    "title": "1  Product Scope",
     "section": "",
-    "text": "The system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
+    "text": "2 Vision",
     "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Input: Client Intake Packet</span>"
+      "Fundamentals",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Product Scope</span>"
     ]
   },
   {
-    "objectID": "chapters/_1_2.html",
-    "href": "chapters/_1_2.html",
-    "title": "2  Processing Pipeline",
-    "section": "",
-    "text": "kjljkj",
-    "crumbs": [
-      "Product Scope",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Processing Pipeline</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/_1_3.html",
-    "href": "chapters/_1_3.html",
+    "objectID": "chapters/chapter4/evaluation_and_benchmarking.html",
+    "href": "chapters/chapter4/evaluation_and_benchmarking.html",
     "title": "3  Output: AI Viability Report",
     "section": "",
     "text": "3.1 Executive Summary\nA structured, human-readable report containing:",
     "crumbs": [
-      "Product Scope",
+      "Tuning and Feature Selection",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
   {
-    "objectID": "chapters/_1_3.html#executive-summary",
-    "href": "chapters/_1_3.html#executive-summary",
+    "objectID": "chapters/chapter4/evaluation_and_benchmarking.html#executive-summary",
+    "href": "chapters/chapter4/evaluation_and_benchmarking.html#executive-summary",
     "title": "3  Output: AI Viability Report",
     "section": "",
     "text": "Case type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary",
     "crumbs": [
-      "Product Scope",
+      "Tuning and Feature Selection",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
   {
-    "objectID": "chapters/_1_3.html#detailed-analysis",
-    "href": "chapters/_1_3.html#detailed-analysis",
+    "objectID": "chapters/chapter4/evaluation_and_benchmarking.html#detailed-analysis",
+    "href": "chapters/chapter4/evaluation_and_benchmarking.html#detailed-analysis",
     "title": "3  Output: AI Viability Report",
     "section": "3.2 Detailed Analysis",
     "text": "3.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
     "crumbs": [
-      "Product Scope",
+      "Tuning and Feature Selection",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
   {
-    "objectID": "chapters/_1_3.html#strength-assessment",
-    "href": "chapters/_1_3.html#strength-assessment",
+    "objectID": "chapters/chapter4/evaluation_and_benchmarking.html#strength-assessment",
+    "href": "chapters/chapter4/evaluation_and_benchmarking.html#strength-assessment",
     "title": "3  Output: AI Viability Report",
     "section": "3.3 Strength Assessment",
     "text": "3.3 Strength Assessment",
     "crumbs": [
-      "Product Scope",
+      "Tuning and Feature Selection",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   }
