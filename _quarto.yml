@@ -6,12 +6,12 @@ book:
   title: "AI Case Viability Advisor"
   chapters:
     - index.qmd
-    - chapters/_0_intro.qmd
-    - part: chapters/_1_0_product_scope.qmd
+    - _0_intro.qmd
+    - part: _1_0_product_scope.qmd
       chapters: 
-        - chapters/_1_1.qmd
-        - chapters/_1_2.qmd
-        - chapters/_1_3.qmd
+        - _1_1.qmd
+        - _1_2.qmd
+        - _1_3.qmd
   sidebar:
     style: docked
     background: light
