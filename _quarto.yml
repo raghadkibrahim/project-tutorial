@@ -3,9 +3,6 @@ project:
   output-dir: docs
 
 book:
-  page-footer:
-    border: true
-    background: light
   title: "AI Case Viability Advisor"
   chapters:
     - index.qmd
@@ -15,6 +12,9 @@ book:
         - chapters/_1_1.qmd
         - chapters/_1_2.qmd
         - chapters/_1_3.qmd
+  sidebar:
+    style: docked
+    background: light
 
 
 bibliography: references.bib

@@ -373,67 +373,67 @@
   {
     "objectID": "chapters/_1_1.html",
     "href": "chapters/_1_1.html",
-    "title": "2  Input: Client Intake Packet",
+    "title": "1  Input: Client Intake Packet",
     "section": "",
     "text": "The system ingests the same materials a lawyer would review in an initial consultation:\n\nClient’s written summary of the issue (facts, timeline claims, opposing parties).\nUploaded documents: Contracts, emails, letters, invoices, employment records, etc.\nMetadata and contextual details: Jurisdiction, date of incident, parties involved, claim type, amount in dispute.\nOptional structured intake form: Dropdown fields for dispute category, employment type, breach type, etc.\nPrimary dataset: Dubai Court verdicts CSV (≈217k rows).\nLinked lookup: case_subtype_code → subtype labels (external dataset).\n\n\nWe track download URIs and hashes so we can prove provenance.",
     "crumbs": [
       "Product Scope",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Input: Client Intake Packet</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Input: Client Intake Packet</span>"
     ]
   },
   {
     "objectID": "chapters/_1_2.html",
     "href": "chapters/_1_2.html",
-    "title": "3  Processing Pipeline",
+    "title": "2  Processing Pipeline",
     "section": "",
     "text": "kjljkj",
     "crumbs": [
       "Product Scope",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Processing Pipeline</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Processing Pipeline</span>"
     ]
   },
   {
     "objectID": "chapters/_1_3.html",
     "href": "chapters/_1_3.html",
-    "title": "4  Output: AI Viability Report",
+    "title": "3  Output: AI Viability Report",
     "section": "",
-    "text": "4.1 Executive Summary\nA structured, human-readable report containing:",
+    "text": "3.1 Executive Summary\nA structured, human-readable report containing:",
     "crumbs": [
       "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
   {
     "objectID": "chapters/_1_3.html#executive-summary",
     "href": "chapters/_1_3.html#executive-summary",
-    "title": "4  Output: AI Viability Report",
+    "title": "3  Output: AI Viability Report",
     "section": "",
     "text": "Case type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary",
     "crumbs": [
       "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
   {
     "objectID": "chapters/_1_3.html#detailed-analysis",
     "href": "chapters/_1_3.html#detailed-analysis",
-    "title": "4  Output: AI Viability Report",
-    "section": "4.2 Detailed Analysis",
-    "text": "4.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
+    "title": "3  Output: AI Viability Report",
+    "section": "3.2 Detailed Analysis",
+    "text": "3.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
     "crumbs": [
       "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
   {
     "objectID": "chapters/_1_3.html#strength-assessment",
     "href": "chapters/_1_3.html#strength-assessment",
-    "title": "4  Output: AI Viability Report",
-    "section": "4.3 Strength Assessment",
-    "text": "4.3 Strength Assessment",
+    "title": "3  Output: AI Viability Report",
+    "section": "3.3 Strength Assessment",
+    "text": "3.3 Strength Assessment",
     "crumbs": [
       "Product Scope",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   }
 ]

@@ -1,6 +1,5 @@
 ---
 title-block-banner: true
-description: Transforming legal case evaluation with AI — from intake packet analysis to outcome prediction and strategic recommendations.
 date: 10/27/2025
 author: Raghad Ibrahim
 ---
