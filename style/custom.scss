@@ -1,0 +1,78 @@
+/*-- scss:rules --*/
+
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+/* ---- Title Block ---- */
+
+
+.quarto-title-block .quarto-title-banner {
+ background: #ffffff !important;
+ color: #edebf8 !important;
+ border-bottom: 1px solid #222733;
+}
+
+.quarto-title-block .quarto-title h1,
+.quarto-title-block .quarto-title p,
+.quarto-title-block .quarto-title .description {
+ color: #89846c !important;
+}
+
+
+/* Left sidebar (navigation) */
+#quarto-sidebar {
+  background-color: #222733 !important;
+  color: #edebf8;
+  border-right: 1px solid #2b3140;
+  margin-left: 0 !important;      /* eliminate any outer margin */
+}
+
+/* Right margin TOC */
+#quarto-margin-sidebar {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* All links in the sidebar (default state) */
+.sidebar .sidebar-item-text.sidebar-link {
+  color: #cdd3e3;
+  text-decoration: none;
+  
+}
+
+
+/* Hover state */
+.sidebar .sidebar-item-text.sidebar-link:hover {
+  color: #e6d4a3; /* your gold-2 */
+}
+
+/* Active page */
+.sidebar .sidebar-item-text.sidebar-link.active {
+  color: #d1b97f; /* your gold */
+  font-weight: 800;
+}
+
+/* The visible text inside links */
+.sidebar .menu-text { 
+  color: inherit;          /* inherits from link states above */
+}
+
+
+/* SECTION HEADERS like “Part 1 - Fundamentals” */
+.sidebar .sidebar-item.sidebar-item-section > .sidebar-item-container > 
+a.sidebar-item-text.sidebar-link {
+  color: #edebf8;          /* header color */
+  text-transform: uppercase;
+  letter-spacing: .5 em;
+  font-weight: 600;
+}

@@ -1,17 +1,15 @@
----
-title-block-banner: true
----
+# Introduction {.unnumbered .unlisted}
+After this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.
 
-<hr>
 
-# **Overview** {.unnumbered}
-The AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.
+::: {.callout}
 
-The system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.
+**Objectives**
 
-# **Product Vision**
+- Recall the form and standard assumptions of linear regression models.
+- Recall and apply standard methods of assessing and testing homogeneity of variance and normality of residuals.
+- Define and test independence (most often, uncorrelatedness) of regression model residuals.
 
-To provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.
+<br>
 
-Vision Statement:
-"To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making."
+:::

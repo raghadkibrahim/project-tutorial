@@ -2,21 +2,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "AI Case Viability Advisor",
+    "title": "AI Legal Platform",
     "section": "",
-    "text": "Preface",
+    "text": "Welcome\nThis is the website for “Hands-On Programming with R”. This book will teach you how to program in R, with hands-on examples. I wrote it for non-programmers to provide a friendly introduction to the R language. You’ll learn how to load data, assemble and disassemble data objects, navigate R’s environment system, write your own functions, and use all of R’s programming tools. Throughout the book, you’ll use your newfound skills to solve practical data science problems.\nIf you are already comfortable with R, and would like to focus instead how to analyze data using R’s Tidyverse packages, I recommend R for Data Science, a book that I co-authored with Hadley Wickham.\n\n\n\n\n\n\nThis site is a port of the original book source to the Quarto publishing system in order to provide an example of it’s use.",
     "crumbs": [
-      "Preface"
+      "Welcome"
     ]
   },
   {
     "objectID": "chapters/chapter1/introduction_and_overview.html",
     "href": "chapters/chapter1/introduction_and_overview.html",
-    "title": "Overview",
+    "title": "Introduction",
     "section": "",
-    "text": "The AI Case Viability Analyst is an intelligent legal assistant designed to evaluate the likelihood of success in potential lawsuits. It functions as an AI-powered case assessment system that mimics a lawyer’s initial case evaluation process. By analyzing the client’s intake packet—including narrative descriptions, supporting documents, contracts, communications, and evidence—it produces a comprehensive legal viability report that quantifies the strength of the case, predicts outcomes, and provides actionable recommendations.\nThe system is trained on historical verdict data, national legislation, legal precedents, and domain-specific reasoning models, ensuring its analysis aligns with actual judicial reasoning patterns.\n\nProduct Vision\nTo provide lawyers, legal consultants, and clients with an objective, data-driven, and explainable evaluation of case viability—reducing time spent on initial assessments, minimizing bias, and enhancing decision-making accuracy in the early stages of litigation.\nVision Statement: “To empower legal professionals with AI-driven insight that transforms subjective case evaluation into data-backed decision-making.”",
+    "text": "After this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.\n\n\n\n\n\n\nObjectives\n\nRecall the form and standard assumptions of linear regression models.\nRecall and apply standard methods of assessing and testing homogeneity of variance and normality of residuals.\nDefine and test independence (most often, uncorrelatedness) of regression model residuals.",
     "crumbs": [
-      "**Overview**"
+      "Introduction"
     ]
   },
   {
@@ -24,9 +24,9 @@
     "href": "chapters/chapter2/product.html",
     "title": "1  Product Scope",
     "section": "",
-    "text": "2 Vision",
+    "text": "1.1 Diagnostics\nAfter this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.",
     "crumbs": [
-      "Fundamentals",
+      "Part 1 - Fundamentals",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Product Scope</span>"
     ]
   },
@@ -35,9 +35,9 @@
     "href": "chapters/chapter4/evaluation_and_benchmarking.html",
     "title": "3  Output: AI Viability Report",
     "section": "",
-    "text": "3.1 Executive Summary\nA structured, human-readable report containing:",
+    "text": "3.1 Diagnostics\nAfter this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.\nA structured, human-readable report containing:",
     "crumbs": [
-      "Tuning and Feature Selection",
+      "Part 2 - Tuning",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
@@ -45,10 +45,10 @@
     "objectID": "chapters/chapter4/evaluation_and_benchmarking.html#executive-summary",
     "href": "chapters/chapter4/evaluation_and_benchmarking.html#executive-summary",
     "title": "3  Output: AI Viability Report",
-    "section": "",
-    "text": "Case type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary",
+    "section": "3.2 Executive Summary",
+    "text": "3.2 Executive Summary\n\nCase type and category\nPredicted likelihood of success (expressed as a percentage and confidence interval)\nGo / No-Go recommendation\nBrief justification summary",
     "crumbs": [
-      "Tuning and Feature Selection",
+      "Part 2 - Tuning",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
@@ -56,10 +56,10 @@
     "objectID": "chapters/chapter4/evaluation_and_benchmarking.html#detailed-analysis",
     "href": "chapters/chapter4/evaluation_and_benchmarking.html#detailed-analysis",
     "title": "3  Output: AI Viability Report",
-    "section": "3.2 Detailed Analysis",
-    "text": "3.2 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
+    "section": "3.3 Detailed Analysis",
+    "text": "3.3 Detailed Analysis\n\nKey legal issues detected\nMapping of facts to relevant statutes, articles, or precedents\nIdentified missing or weak evidence\nSentiment and credibility analysis (optional)",
     "crumbs": [
-      "Tuning and Feature Selection",
+      "Part 2 - Tuning",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
     ]
   },
@@ -67,11 +67,124 @@
     "objectID": "chapters/chapter4/evaluation_and_benchmarking.html#strength-assessment",
     "href": "chapters/chapter4/evaluation_and_benchmarking.html#strength-assessment",
     "title": "3  Output: AI Viability Report",
-    "section": "3.3 Strength Assessment",
-    "text": "3.3 Strength Assessment",
+    "section": "3.4 Strength Assessment",
+    "text": "3.4 Strength Assessment\n← Own Your Prompts | Tools Are Structured Outputs →",
     "crumbs": [
-      "Tuning and Feature Selection",
+      "Part 2 - Tuning",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Output: AI Viability Report</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter3/data.html",
+    "href": "chapters/chapter3/data.html",
+    "title": "2  Context Engineering",
+    "section": "",
+    "text": "2.1 Diagnostics\nAfter this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.",
+    "crumbs": [
+      "Part 1 - Fundamentals",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Context Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "AI Legal Platform",
+    "section": "",
+    "text": "Recall the form and standard assumptions of linear regression models.\nRecall and apply standard methods of assessing and testing homogeneity of variance and normality of residuals.\nDefine and test independence (most often, uncorrelatedness) of regression model residuals.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "AI Case Viability Advisor",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nAs well as the editors and contributing authors, many others have contributed to this book. We would like to acknowledge Stefan Coors for creating many of the images in the book, as well as Daniel Saggau, Jakob Richter, and Marvin Böcker for contributions to earlier drafts the book. We would also like to acknowledge the following organisations that supported various contributors: Munich Center for Machine Learning (MCML), National Science Foundation (NSF), and Mathematical Research Data Initiative (MaRDI).\n:::",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter3/data.html#own-your-context-window",
+    "href": "chapters/chapter3/data.html#own-your-context-window",
+    "title": "2  Context Engineering",
+    "section": "2.3 Own your context window",
+    "text": "2.3 Own your context window\nYou don’t necessarily need to use standard message-based formats for conveying context to an LLM.\n\n2.3.0.1 At any given point, your input to an LLM in an agent is “here’s what’s happened so far, what’s the next step”\n\n\n\nEverything is context engineering. LLMs are stateless functions that turn inputs into outputs. To get the best outputs, you need to give them the best inputs.\nCreating great context means:\n\nThe prompt and instructions you give to the model\nAny documents or external data you retrieve (e.g. RAG)\nAny past state, tool calls, results, or other history\nAny past messages or events from related but separate histories/conversations (Memory)\nInstructions about what sorts of structured data to output\n\n\n\n\nimage\n\n\n\n2.3.1 on context engineering\nThis guide is all about getting as much as possible out of today’s models. Notably not mentioned are:\n\nChanges to models parameters like temperature, top_p, frequency_penalty, presence_penalty, etc.\nTraining your own completion or embedding models\nFine-tuning existing models\n\nAgain, I don’t know what’s the best way to hand context to an LLM, but I know you want the flexibility to be able to try EVERYTHING.\n\n2.3.1.1 Standard vs Custom Context Formats\nMost LLM clients use a standard message-based format like this:\n[\n  {\n    \"role\": \"system\",\n    \"content\": \"You are a helpful assistant...\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Can you deploy the backend?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": null,\n    \"tool_calls\": [\n      {\n        \"id\": \"1\",\n        \"name\": \"list_git_tags\",\n        \"arguments\": \"{}\"\n      }\n    ]\n  },\n  {\n    \"role\": \"tool\",\n    \"name\": \"list_git_tags\",\n    \"content\": \"{\\\"tags\\\": [{\\\"name\\\": \\\"v1.2.3\\\", \\\"commit\\\": \\\"abc123\\\", \\\"date\\\": \\\"2024-03-15T10:00:00Z\\\"}, {\\\"name\\\": \\\"v1.2.2\\\", \\\"commit\\\": \\\"def456\\\", \\\"date\\\": \\\"2024-03-14T15:30:00Z\\\"}, {\\\"name\\\": \\\"v1.2.1\\\", \\\"commit\\\": \\\"abe033d\\\", \\\"date\\\": \\\"2024-03-13T09:15:00Z\\\"}]}\",\n    \"tool_call_id\": \"1\"\n  }\n]\nWhile this works great for most use cases, if you want to really get THE MOST out of today’s LLMs, you need to get your context into the LLM in the most token- and attention-efficient way you can.\nAs an alternative to the standard message-based format, you can build your own context format that’s optimized for your use case. For example, you can use custom objects and pack/spread them into one or more user, system, assistant, or tool messages as makes sense.\nHere’s an example of putting the whole context window into a single user message:\n\n[\n  {\n    \"role\": \"system\",\n    \"content\": \"You are a helpful assistant...\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": |\n            Here's everything that happened so far:\n        \n        &lt;slack_message&gt;\n            From: @alex\n            Channel: #deployments\n            Text: Can you deploy the backend?\n        &lt;/slack_message&gt;\n        \n        &lt;list_git_tags&gt;\n            intent: \"list_git_tags\"\n        &lt;/list_git_tags&gt;\n        \n        &lt;list_git_tags_result&gt;\n            tags:\n              - name: \"v1.2.3\"\n                commit: \"abc123\"\n                date: \"2024-03-15T10:00:00Z\"\n              - name: \"v1.2.2\"\n                commit: \"def456\"\n                date: \"2024-03-14T15:30:00Z\"\n              - name: \"v1.2.1\"\n                commit: \"ghi789\"\n                date: \"2024-03-13T09:15:00Z\"\n        &lt;/list_git_tags_result&gt;\n        \n        what's the next step?\n    }\n]\nThe model may infer that you’re asking it what's the next step by the tool schemas you supply, but it never hurts to roll it into your prompt template.\n\n\n\n2.3.2 code example\nWe can build this with something like:\n\nclass Thread:\n  events: List[Event]\n\nclass Event:\n  # could just use string, or could be explicit - up to you\n  type: Literal[\"list_git_tags\", \"deploy_backend\", \"deploy_frontend\", \"request_more_information\", \"done_for_now\", \"list_git_tags_result\", \"deploy_backend_result\", \"deploy_frontend_result\", \"request_more_information_result\", \"done_for_now_result\", \"error\"]\n  data: ListGitTags | DeployBackend | DeployFrontend | RequestMoreInformation |  \n        ListGitTagsResult | DeployBackendResult | DeployFrontendResult | RequestMoreInformationResult | string\n\ndef event_to_prompt(event: Event) -&gt; str:\n    data = event.data if isinstance(event.data, str) \\\n           else stringifyToYaml(event.data)\n\n    return f\"&lt;{event.type}&gt;\\n{data}\\n&lt;/{event.type}&gt;\"\n\n\ndef thread_to_prompt(thread: Thread) -&gt; str:\n  return '\\n\\n'.join(event_to_prompt(event) for event in thread.events)\n\n2.3.2.1 Example Context Windows\nHere’s how context windows might look with this approach:\nInitial Slack Request:\n&lt;slack_message&gt;\n    From: @alex\n    Channel: #deployments\n    Text: Can you deploy the latest backend to production?\n&lt;/slack_message&gt;\nAfter Listing Git Tags:\n&lt;slack_message&gt;\n    From: @alex\n    Channel: #deployments\n    Text: Can you deploy the latest backend to production?\n    Thread: []\n&lt;/slack_message&gt;\n\n&lt;list_git_tags&gt;\n    intent: \"list_git_tags\"\n&lt;/list_git_tags&gt;\n\n&lt;list_git_tags_result&gt;\n    tags:\n      - name: \"v1.2.3\"\n        commit: \"abc123\"\n        date: \"2024-03-15T10:00:00Z\"\n      - name: \"v1.2.2\"\n        commit: \"def456\"\n        date: \"2024-03-14T15:30:00Z\"\n      - name: \"v1.2.1\"\n        commit: \"ghi789\"\n        date: \"2024-03-13T09:15:00Z\"\n&lt;/list_git_tags_result&gt;\nAfter Error and Recovery:\n&lt;slack_message&gt;\n    From: @alex\n    Channel: #deployments\n    Text: Can you deploy the latest backend to production?\n    Thread: []\n&lt;/slack_message&gt;\n\n&lt;deploy_backend&gt;\n    intent: \"deploy_backend\"\n    tag: \"v1.2.3\"\n    environment: \"production\"\n&lt;/deploy_backend&gt;\n\n&lt;error&gt;\n    error running deploy_backend: Failed to connect to deployment service\n&lt;/error&gt;\n\n&lt;request_more_information&gt;\n    intent: \"request_more_information_from_human\"\n    question: \"I had trouble connecting to the deployment service, can you provide more details and/or check on the status of the service?\"\n&lt;/request_more_information&gt;\n\n&lt;human_response&gt;\n    data:\n      response: \"I'm not sure what's going on, can you check on the status of the latest workflow?\"\n&lt;/human_response&gt;\nFrom here your next step might be:\nnextStep = await determine_next_step(thread_to_prompt(thread))\n{\n  \"intent\": \"get_workflow_status\",\n  \"workflow_name\": \"tag_push_prod.yaml\",\n}\nThe XML-style format is just one example - the point is you can build your own format that makes sense for your application. You’ll get better quality if you have the flexibility to experiment with different context structures and what you store vs. what you pass to the LLM.\nKey benefits of owning your context window:\n\nInformation Density: Structure information in ways that maximize the LLM’s understanding\nError Handling: Include error information in a format that helps the LLM recover. Consider hiding errors and failed calls from context window once they are resolved.\nSafety: Control what information gets passed to the LLM, filtering out sensitive data\nFlexibility: Adapt the format as you learn what works best for your use case\nToken Efficiency: Optimize context format for token efficiency and LLM understanding\n\nContext includes: prompts, instructions, RAG documents, history, tool calls, memory\nRemember: The context window is your primary interface with the LLM. Taking control of how you structure and present information can dramatically improve your agent’s performance.\nExample - information density - same message, fewer tokens:\n\n\n\nLoom Screenshot 2025-04-22 at 09 00 56\n\n\n\n\n\n2.3.3 Don’t take it from me\nAbout 2 months after 12-factor agents was published, context engineering started to become a pretty popular term.\n \nThere’s also a quite good Context Engineering Cheat Sheet from (lenadroid?) from July 2025.\n\nRecurring theme here: I don’t know what’s the best approach, but I know you want the flexibility to be able to try EVERYTHING.",
+    "crumbs": [
+      "Part 1 - Fundamentals",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Context Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter3/data.html#what-is-context-engineering",
+    "href": "chapters/chapter3/data.html#what-is-context-engineering",
+    "title": "2  Context Engineering",
+    "section": "2.2 What is Context Engineering?",
+    "text": "2.2 What is Context Engineering?\nContext Engineering is designing and building dynamic systems that give an LLM the right information in the right format at the right time to accomplish a task.\nTake an example of a common type of agent. This agent\n\nbreaks its work down into multiple parts\nstarts subagents to work on those parts\ncombines those results in the end\n\n\n\n\nimage\n\n\nThis is a tempting architecture, especially if you work in a domain of tasks with several parallel components to it. However, it is very fragile. Most real-world tasks have many layers of nuance that all have the potential to be miscommunicated.\nYou might think that a simple solution would be to just copy over the original task as context to the subagents as well. That way, they don’t misunderstand their subtask. But remember that in a real production system, the conversation is most likely multi-turn, the agent probably had to make some tool calls to decide how to break down the task, and any number of details could have consequences on the interpretation of the task.",
+    "crumbs": [
+      "Part 1 - Fundamentals",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Context Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter1/introduction_and_overview.html#section",
+    "href": "chapters/chapter1/introduction_and_overview.html#section",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "TipPage Content\n\n\n\nAfter this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.\nObjectives\nRecall the form and standard assumptions of linear regression models. Recall and apply standard methods of assessing and testing homogeneity of variance and normality of residuals. Define and test independence (most often, uncorrelatedness) of regression model residuals.\nReading materials\nChapters 3–4 in Chatterjee and Hadi (2006)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter1/introduction_and_overview.html#hello",
+    "href": "chapters/chapter1/introduction_and_overview.html#hello",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "TipPage Content\n\n\n\nAfter this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.\nObjectives\nRecall the form and standard assumptions of linear regression models. Recall and apply standard methods of assessing and testing homogeneity of variance and normality of residuals. Define and test independence (most often, uncorrelatedness) of regression model residuals.\nReading materials\nChapters 3–4 in Chatterjee and Hadi (2006)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter1/introduction_and_overview.html#diagnostics-for-the-simple-linear-regression-residual-analysis",
+    "href": "chapters/chapter1/introduction_and_overview.html#diagnostics-for-the-simple-linear-regression-residual-analysis",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "the residuals \\(\\epsilon_{t}\\) have common variance (\\(\\epsilon_{t}\\) are homoskedastic);\nthe residuals \\(\\epsilon_{t}\\) are uncorrelated;\nto provide prediction intervals (PIs), confidence intervals (CIs), and to test hypotheses about the parameters in our model, we also need to assume that\nthe residuals \\(\\epsilon_{t}\\) are normally distributed (\\(\\epsilon_{t} \\sim N (0, \\sigma^{ 2} )\\)).\n\n\n\n\n\n\n\nNote\n\n\n\nIf the residuals are independent and identically distributed and normal (\\(\\epsilon_{t} \\sim\\) i.i.d. \\(N(0, \\sigma^{2}\\))), then all three above properties are automatically satisfied. In this case, \\(\\epsilon_{t}\\) are not only uncorrelated but are independent. To be independent is a much stronger property than to be uncorrelated.\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhile a given model may still have useful predictive value even when the OLS assumptions are violated, the confidence intervals, prediction intervals, and \\(p\\)-values associated with the \\(t\\)-statistics will generally be incorrect when the OLS assumptions do not hold.\n\n\n\n\n\n1.1.1 Homoskedasticity\nWe plot the residuals \\(\\hat{\\epsilon}_{t}\\) vs. time, fitted values \\(\\hat{Y}_{t}\\), and predictor values \\(X_t\\). If the assumption of constant variance is satisfied, \\(\\hat{\\epsilon}_{t}\\) fluctuate around the zero mean with more or less constant amplitude and this amplitude does not change with time, fitted values \\(\\hat{Y}_{t}\\), and predictor values \\(X_t\\).\nIf the (linear) model is not appropriate, the mean of the residuals may be non-constant, i.e., not always 0. ?fig-IdealResiduals shows an example of a random pattern that we would like the residuals to have (no systematic patterns).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter1/introduction_and_overview.html#diagnostics",
+    "href": "chapters/chapter1/introduction_and_overview.html#diagnostics",
+    "title": "Introduction",
+    "section": "",
+    "text": "the residuals \\(\\epsilon_{t}\\) have common variance (\\(\\epsilon_{t}\\) are homoskedastic);\nthe residuals \\(\\epsilon_{t}\\) are uncorrelated;\nto provide prediction intervals (PIs), confidence intervals (CIs), and to test hypotheses about the parameters in our model, we also need to assume that\nthe residuals \\(\\epsilon_{t}\\) are normally distributed (\\(\\epsilon_{t} \\sim N (0, \\sigma^{ 2} )\\)).\n\n\n\n\n\n\n\nNote\n\n\n\nIf the residuals are independent and identically distributed and normal (\\(\\epsilon_{t} \\sim\\) i.i.d. \\(N(0, \\sigma^{2}\\))), then all three above properties are automatically satisfied. In this case, \\(\\epsilon_{t}\\) are not only uncorrelated but are independent. To be independent is a much stronger property than to be uncorrelated.\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhile a given model may still have useful predictive value even when the OLS assumptions are violated, the confidence intervals, prediction intervals, and \\(p\\)-values associated with the \\(t\\)-statistics will generally be incorrect when the OLS assumptions do not hold.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#part-i-fundamentals",
+    "href": "index.html#part-i-fundamentals",
+    "title": "AI Case Viability Advisor",
+    "section": "1.1 Part I: Fundamentals ",
+    "text": "1.1 Part I: Fundamentals \nIn this part of the book we will teach you the fundamentals of mlr3. This will give you a flavor of the building blocks of the mlr3 universe and the basic tools you will need to tackle most machine learning problems. We recommend that all readers study these chapters to become familiar with mlr3 terminology, syntax, and style. In ?sec-basics we will cover the basic classes in r mlr3, including Learner (machine learning implementations), Measure (performance metrics), and Task (machine learning task definitions). ?sec-performance will take evaluation a step further to include discussions about resampling – robust strategies for measuring model performance – and benchmarking – experiments for comparing multiple models.\nPart II: Tuning and Feature Selection In this part of the book, we will look at more advanced methodology that is essential to developing powerful ML models with good predictive ability. ?sec-optimization introduces hyperparameter optimization, which is the process of tuning model hyperparameters to obtain better model performance. Tuning is implemented via the r mlr3tuning package, which also includes methods for automating complex tuning processes, including nested resampling. The performance of ML models can be improved by tuning hyperparameters but also by carefully selecting features. ?sec-feature-selection introduces feature selection with filters and wrappers implemented in r mlr3filters and r mlr3fselect. For readers interested in taking a deep dive into tuning, ?sec-optimization-advanced discusses advanced tuning methods including error handling, multi-objective tuning, and tuning with Hyperband and Bayesian optimization methods.\nPart III: Pipelines and Preprocessing In Part III we introduce r mlr3pipelines, which allows users to implement complex ML workflows easily. In ?sec-pipelines we will show you how to build a pipeline out of discrete configurable operations and how to treat complex pipelines as if they were any other machine learning model. In ?sec-pipelines-nonseq we will build on the previous chapter by introducing non-sequential pipelines, which can have multiple branches that carry out operations concurrently. We will also demonstrate how to tune pipelines, including how to tune which operations should be included in the pipeline. Finally, in ?sec-preprocessing we will put pipelines into practice by demonstrating how to solve common problems that occur when fitting ML models to messy data.\nPart IV: Advanced Topics In the final part of the book, we will look at advanced methodology and technical details. This part of the book is more theory-heavy in some sections to help ground the design and implementation decisions. We will begin by looking at advanced technical details in ?sec-technical that are essential reading for advanced users who require parallelization, custom error handling, or large databases. ?sec-large-benchmarking will build on all preceding chapters to introduce large-scale benchmarking experiments that compare many models, tasks, and measures; including how to make use of mlr3 extension packages for loading data, using high-performance computing clusters, and formal statistical analysis of benchmark experiments. ?sec-interpretation will discuss different packages that are compatible with mlr3 to provide model-agnostic interpretability for feature importance and local explainability of individual predictions. ?sec-special will then delve into detail on domain-specific methods that are implemented in our extension packages including survival analysis, density estimation, spatio-temporal analysis, and more. Readers may choose to selectively read sections in this chapter depending on your use case (i.e., if you have domain-specific problems to tackle), or to use these as introductions to new domains to explore. Then, ?sec-fairness will introduce algorithmic fairness, which includes specialized measures and methods to identify and reduce algorithmic biases. Finally, ?sec-predict-sets will explain how to evaluate algorithms on different predict sets (i.e., train, validation and test) and how to configure validation and early stopping for r mlr3 learners.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "AI Legal Platform",
+    "section": "",
+    "text": "This book was originally created using bookdown and published at https://rstudio-education.github.io/hopr/. This site is a port of the original book source to the Quarto publishing system in order to provide an example of it’s use.",
+    "crumbs": [
+      "Welcome"
     ]
   }
 ]

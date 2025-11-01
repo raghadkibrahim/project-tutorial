@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 book:
-  title: "AI Case Viability Advisor"
+  title: "AI Legal Platform"
+  author: "Raghad Ibrahim"
   repo-url: https://github.com/raghadkibrahim/project-tutorial
   sidebar:
     style: "floating"
@@ -12,18 +13,17 @@ book:
     search: true
   page-footer:
     left: |
-      All content licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) <br> &copy; Bernd Bischl, Raphael Sonabend, Lars Kotthoff, Michel Lang.
-    center: "[GitHub](https://github.com/raghadkibrahim/project-tutorial)"
+      All content licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) <br> &copy; Raghad Ibrahim
     right: Built with [Quarto](https://quarto.org/).
     background: "#f8f9fa"
   chapters:
     - index.qmd
     - chapters/chapter1/introduction_and_overview.qmd
-    - part: "Fundamentals"
+    - part: "Part 1 - Fundamentals"
       chapters:
       - chapters/chapter2/product.qmd
       - chapters/chapter3/data.qmd
-    - part: "Tuning and Feature Selection"
+    - part: "Part 2 - Tuning"
       chapters:
       - chapters/chapter4/evaluation_and_benchmarking.qmd
   appendices:
@@ -34,9 +34,22 @@ bibliography: references.bib
 
 format:
   html:
-    theme:
-      - lux
-      - brand
+    theme: style/custom.scss # dark base + your overrides
+    cover-image: cover.png
+    fontsize: "16px"
+    linestretch: 1.65
+    mainfont: "Zalando Sans SemiExpanded"
+    monofont: "Fira Mono"
+    smooth-scroll: true
+    toc-depth: 3
+    code-link: true
+    code-tools:
+      toggle: true
+    code-fold: false
+    highlight-style: github
+    code-block-bg: true
+    code-overflow: wrap
+    reference-location: margin
 
 
 

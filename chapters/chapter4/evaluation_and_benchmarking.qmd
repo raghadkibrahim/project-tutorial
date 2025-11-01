@@ -1,5 +1,24 @@
 # Output: AI Viability Report
 
+
+After this lecture, you should be competent (again) in assessing violations of various assumptions of linear regression models, particularly assumptions about model residuals, by being able to apply visual assessments and formal statistical tests, and interpret the results and effects of the violations.
+
+
+::: {.callout}
+
+**Objectives**
+
+- Recall the form and standard assumptions of linear regression models.
+- Recall and apply standard methods of assessing and testing homogeneity of variance and normality of residuals.
+- Define and test independence (most often, uncorrelatedness) of regression model residuals.
+
+<br>
+
+:::
+<br>
+
+## Diagnostics
+
 A structured, human-readable report containing:
 
 ## Executive Summary
@@ -23,3 +42,8 @@ A structured, human-readable report containing:
 - Sentiment and credibility analysis (optional)
 
 ## Strength Assessment
+
+
+
+[← Own Your Prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md) | [Tools Are Structured Outputs →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
+
